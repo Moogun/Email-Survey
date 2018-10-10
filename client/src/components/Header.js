@@ -25,6 +25,7 @@ class Header extends Component {
         />
       default:
         return [
+          <Menu.Item key={0}>Credits: {this.props.authReducer.credits}</Menu.Item>,
           <Menu.Item key={1}><Payment /></Menu.Item>,
           <Menu.Item key={2}
             name='logout'
