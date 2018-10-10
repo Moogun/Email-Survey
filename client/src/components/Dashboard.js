@@ -15,7 +15,9 @@ class Dashboard extends Component {
         <Grid.Column color="red">
           <div ref={this.handleContextRef}>
              <Segment basic>
-          
+
+              Dashboard
+
               <Rail position='right'>
                 <Sticky context={contextRef} offset={10}>
 
