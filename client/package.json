@@ -8,11 +8,12 @@
     },
     "/api/*": {
       "target": "http://localhost:5000",
-       "secure": false
+      "secure": false
     }
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "lodash": "^4.17.11",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
     "react-redux": "^5.0.7",
