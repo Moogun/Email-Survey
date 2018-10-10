@@ -5,10 +5,9 @@ import * as actions from './actions'
 
 import Header from './components/Header'
 import Dashboard from './components/Dashboard'
+import SurveyNew from './components/surveys/SurveyNew'
 
-const SurveyNew = () =>  <div> SurveyNew </div>
 const Landing = () => <div> Landing </div>
-
 
 class App extends Component {
 
