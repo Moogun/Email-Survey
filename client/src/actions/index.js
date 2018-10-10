@@ -1,0 +1,22 @@
+import axios from 'axios'
+import { FETCH_USER } from './types';
+
+export const fetchUser = () => async (dispatch) => {
+    const res = await axios.get('/api/current_user')
+    return dispatch({type: FETCH_USER, payload: res.data })
+}
+
+// export const handleToken = (dispatch) => {
+//   return dispatch({type: 'ADD_CREDIT', payload: '5'})
+// }
+// export const handleToken = (token) => async (dispatch) => {
+//     const res = await axios.post('/api/stripe')
+//     console.log('token', token, 'res', res);
+//     return dispatch({type: 'ADD_CREDIT', payload: res.data })
+// }
+
+export const handleToken = token => async dispatch => {
+   const res = await axios.post('/api/stripe', token);
+
+   dispatch({ type: FETCH_USER, payload: res.data });
+ };
