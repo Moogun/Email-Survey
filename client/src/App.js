@@ -12,7 +12,6 @@ import './App.css'
 class App extends Component {
 
   componentDidMount(){
-    console.log('[App did mount] 1 ', )
     this.props.fetchUser()
   }
 
@@ -31,16 +30,5 @@ class App extends Component {
     );
   }
 }
-//action creator is a fnc returns an obj
-
-// const mapDispatchToProps = dispatch => {
-//   // fetchUser: dispatch(actionCreator({}))
-//   // fetchUser: dispatch(addTodo({type: '', text: '' }))
-//   return {
-//       fetchUser: () => {
-//       return dispatch(fetchUser)
-//     }
-//   }
-// }
 
 export default connect(null, actions)(App);

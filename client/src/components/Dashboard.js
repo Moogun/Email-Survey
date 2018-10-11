@@ -16,7 +16,7 @@ class Dashboard extends Component {
           <div ref={this.handleContextRef}>
              <Segment basic>
 
-              Dashboard
+              Click '+' to send emails
 
               <Rail position='right'>
                 <Sticky context={contextRef} offset={10}>
