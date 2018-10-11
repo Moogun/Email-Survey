@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
 import { Link } from 'react-router-dom'
-import { Input, Menu, Container } from 'semantic-ui-react'
+import { Input, Menu, Container, Segment } from 'semantic-ui-react'
 
 import Payment from './Payment'
 
@@ -40,8 +40,9 @@ class Header extends Component {
     console.log('auth', this.props.authReducer);
 
     return (
+      <Segment basic inverted color="purple">
       <Container>
-        <Menu secondary>
+        <Menu secondary inverted>
           <Menu.Item name='home'
             active={activeItem === 'home'}
             onClick={this.handleItemClick}
@@ -62,6 +63,7 @@ class Header extends Component {
           </Menu.Menu>
         </Menu>
       </Container>
+      </Segment>
     )
   }
 }
