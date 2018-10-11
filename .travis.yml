@@ -5,8 +5,7 @@ dist: trusty
 services:
   - mongodb
 env:
-  - NODE_ENV=ci PORT=3000
-  - CI=false
+  - CI=false NODE_ENV=ci PORT=3000
 cache:
   directories:
     - node_modules
