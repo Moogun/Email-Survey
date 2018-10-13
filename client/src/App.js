@@ -5,8 +5,8 @@ import * as actions from './actions'
 
 import Header from './components/Header'
 import Landing from './components/Landing'
-import Dashboard from './components/Dashboard'
 import SurveyNew from './components/surveys/SurveyNew'
+import SurveyList from './components/surveys/SurveyList'
 import './App.css'
 
 class App extends Component {
@@ -22,7 +22,7 @@ class App extends Component {
           <div>
             <Header />
             <Route exact path="/" component={Landing} />
-            <Route exact path="/surveys" component={Dashboard} />
+            <Route exact path="/surveys" component={SurveyList} />
             <Route path="/surveys/new" component={SurveyNew} />
           </div>
         </Router>
