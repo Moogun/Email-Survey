@@ -1,3 +1,7 @@
+const _ = require('lodash');
+const Path = require('path-parser').default
+const { URL } = require('url');
+
 const mongoose = require('mongoose');
 const requireLogin = require('../middlewares/requireLogin')
 const requireCredits = require('../middlewares/requireCredits')
@@ -12,8 +16,38 @@ module.exports = app => {
      res.send('Thanks for voting!');
    });
   app.post('/api/surveys/webhooks', (req, res) => {
-    console.log('req', req.body);
-    res.send({})    
+
+    const events = _.map(req.body, (event) => {
+      console.log('event ------', event);
+      switch (event.event) {
+        case 'delivered':
+          console.log('11111');
+          break;
+        case 'click':
+          console.log('22222', event.url);
+          const p = new Path('/api/surveys/:surveyId/:choice');
+
+          const events = _.chain(req.body)
+            .map((event) => {
+              const match = p.test(new URL(event.url).pathname)
+              if (match) {
+                return { email: event.email, surveyId: match.surveyId, choice: match.choice }
+              }
+            })
+            .compact()
+            .uniqBy('email', 'surveyId')
+            .value()
+
+          console.log('------event------', events);
+          res.send({})
+          break;
+        case 'open':
+          console.log('3333');
+          break;
+        default:
+          console.log('0000');
+      }
+    })
   })
 
   app.post('/api/surveys',
@@ -26,7 +60,7 @@ module.exports = app => {
       title,
       subject,
       body,
-      recipients: recipients.split(',').map(email => ({email: email})),
+      recipients: recipients.split(',').map(email => ({email: email.trim() })),
       _user: req.user.id,
       dateSent: Date.now()
     })
