@@ -4,34 +4,28 @@ import { connect } from 'react-redux';
 import formFields from './formFields';
 import { withRouter } from 'react-router-dom';
 import * as actions from '../../actions';
-import { Container, Button, Form } from 'semantic-ui-react'
+import { Container, Button, Form, Table, Header } from 'semantic-ui-react'
 
 const SurveyFormReview = ({onCancel, formValues, submitSurvey, history}) => {
    const reviewFields = _.map(formFields, ({ name, label }) => {
      return (
-       <div key={name}>
-         <label>{label}</label>
-         <div>
-           {formValues[name]}
-         </div>
-       </div>
+          <Table.Row key={name}>
+            <Table.Cell width={4}>{label}</Table.Cell>
+            <Table.Cell>{formValues[name]}</Table.Cell>
+          </Table.Row>
      );
    });
 
    return (
      <Container>
-       <h5>Please confirm your entries</h5>
-       {reviewFields}
-       <Button
-         onClick={onCancel}
-       >
-         Back
-       </Button>
-       <Button
-         onClick={() => submitSurvey(formValues, history)}
-       >
-         Send Survey
-       </Button>
+       <Header as='h2'>Please confirm your entries</Header>
+        <Table padded>
+            <Table.Body>
+                {reviewFields}
+            </Table.Body>
+        </Table>
+        <Button color='yellow' onClick={onCancel}> Back </Button>
+        <Button primary floated='right' onClick={() => submitSurvey(formValues, history)} > Send Survey </Button>
      </Container>
    );
  };

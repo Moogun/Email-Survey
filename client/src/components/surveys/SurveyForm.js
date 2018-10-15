@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 import SurveyField from './SurveyField';
 import validateEmails from '../../utils/validateEmails';
 import formFields from './formFields';
-import { Container, Button, Form } from 'semantic-ui-react'
+import { Container, Button, Form, Header } from 'semantic-ui-react'
 
 class SurveyForm  extends Component {
   renderFields() {
     return _.map(formFields, ({label, name}) => {
        return <Form.Field key={name}>
          <label>{label}</label>
-         <Field key={name}  type="text" name={name} component={SurveyField} />
+         <Field key={name} name={name} component={SurveyField} />
       </Form.Field>
     })
   }
@@ -20,11 +20,11 @@ class SurveyForm  extends Component {
   render() {
     return (
       <Container>
-
+        <Header as='h2'>New Survey</Header>
         <Form action="" onSubmit={this.props.handleSubmit(() => this.props.onSurveySubmit())}>
           {this.renderFields()}
-          <Button><Link to="/surveys">Cancel</Link></Button>
-          <Button type="submit">Submit</Button>
+          <Button color='red' as={Link} to="/surveys">Cancel</Button>
+          <Button primary floated='right' type="submit">Review</Button>
         </Form>
       </Container>
     );

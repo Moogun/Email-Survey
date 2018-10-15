@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { fetchSurveys } from '../../actions'
-import { Container, Button, Rail, Segment, Sticky } from 'semantic-ui-react'
+import { Container, Button, Segment, Header } from 'semantic-ui-react'
 
 class SurveyList extends Component {
   componentDidMount() {
@@ -23,6 +23,7 @@ class SurveyList extends Component {
     console.log('[surveys]', this.props.surveys);
     return (
       <Container>
+        <Header as='h2'>Survey List</Header>
         {this.renderSurveys()}
       </Container>
     );

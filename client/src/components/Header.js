@@ -41,28 +41,37 @@ class Header extends Component {
 
     return (
       <Segment basic inverted color="purple">
-      <Container>
-        <Menu secondary inverted>
-          <Menu.Item name='home'
-            active={activeItem === 'home'}
-            onClick={this.handleItemClick}
-            as={Link} to='/'
-          />
-          <Menu.Item
-            name='messages'
-            active={activeItem === 'messages'}
-            onClick={this.handleItemClick}
-          />
-          <Menu.Item
-            name='friends'
-            active={activeItem === 'friends'}
-            onClick={this.handleItemClick}
-          />
-          <Menu.Menu position='right'>
-            {this.renderContent()}
-          </Menu.Menu>
-        </Menu>
-      </Container>
+          <Container>
+            <Menu secondary inverted>
+              <Menu.Item name='home'
+                active={activeItem === 'home'}
+                onClick={this.handleItemClick}
+                as={Link} to='/'
+              />
+              <Menu.Item
+                name='New Survey'
+                active={activeItem === 'new'}
+                onClick={this.handleItemClick}
+                as={Link} to='/surveys/new'
+              />
+              <Menu.Item
+                name='Draft'
+                active={activeItem === 'draft'}
+                onClick={this.handleItemClick}
+                as={Link} to='/draft'
+              />
+              <Menu.Item
+                name='List'
+                active={activeItem === 'list'}
+                onClick={this.handleItemClick}
+                as={Link} to='/surveys'
+              />
+
+              <Menu.Menu position='right'>
+                {this.renderContent()}
+              </Menu.Menu>
+            </Menu>
+          </Container>
       </Segment>
     )
   }
