@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { fetchSurveys } from '../../actions'
-import { Container, Button, Segment, Header, Pagination } from 'semantic-ui-react'
+import { Container, Button, Segment, Header, Pagination, Table } from 'semantic-ui-react'
 
 class SurveyList extends Component {
   state = {
@@ -30,12 +30,15 @@ class SurveyList extends Component {
 
   renderSurveys() {
     return this.props.surveys.map(survey => {
+      let date = new Date(survey.dateSent);
       return (
-          <Segment key={survey._id}>
-            Title: {survey.title}
-            Body: {survey.body}
-            Yes or No {survey.yes} / {survey.no}
-          </Segment>
+          <Table.Row key={survey._id}>
+            <Table.Cell>{date.getFullYear()+'-' + (date.getMonth()+1) + '-'+date.getDate()} </Table.Cell>
+            <Table.Cell>{survey.title} </Table.Cell>
+            <Table.Cell>{survey.body} </Table.Cell>
+            <Table.Cell>{survey.yes} </Table.Cell>
+            <Table.Cell>{survey.no} </Table.Cell>
+          </Table.Row>
       )
     })
   }
@@ -52,7 +55,21 @@ class SurveyList extends Component {
     return (
       <Container>
         <Header as='h2'>Survey List</Header>
-        {this.renderSurveys()}
+        <Table padded selectable>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell width={1}>Sent</Table.HeaderCell>
+              <Table.HeaderCell width={2}>Title</Table.HeaderCell>
+              <Table.HeaderCell width={3}>Body</Table.HeaderCell>
+              <Table.HeaderCell width={1}>Yes</Table.HeaderCell>
+              <Table.HeaderCell width={1}>No</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body>
+              {this.renderSurveys()}
+          </Table.Body>
+         </Table>
+
         <Segment basic textAlign='center'>
             <Pagination
                 activePage={activePage}
