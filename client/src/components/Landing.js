@@ -9,7 +9,7 @@ class Landing extends Component {
       <Container>
         <div className="text-box ">
           <div className="App-title">Email Tracker</div>
-          <div>Now you can see if your emails are opend or not </div>
+          <div>Now you can see how your customers respond to your email marketing </div>
         </div>
       </Container>
 

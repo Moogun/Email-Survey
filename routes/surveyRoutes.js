@@ -11,15 +11,16 @@ const template = require('../services/emailTemplates/surveyTemplate');
 const Survey = mongoose.model('surveys')
 
 module.exports = app => {
-    // pagination
-    // offset
-    // limit
-    // skip
-    
+    // /api/surveys?pageNumber=2&pageSize=10
   app.get('/api/surveys', requireLogin, async (req, res) => {
-    const surveys = await Survey.find({_user: req.user.id}).select({
-      recipients: false
-    })
+    const {activePage, pageSize}  = req.query;
+    const surveysToSkip = (parseInt(activePage) -1) * parseInt(pageSize);
+    const surveysPerPage = parseInt(pageSize);
+    console.log('------------', surveysToSkip, surveysPerPage, activePage, pageSize);
+    const surveys = await Survey.find({_user: req.user.id})
+        .skip(surveysToSkip)
+        .limit(surveysPerPage)
+
     res.send(surveys)
   })
 
