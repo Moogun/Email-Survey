@@ -19,6 +19,11 @@
   margin-bottom: 1em;
 }
 
+.App-title-sub {
+ font-size: 2em;
+ margin-bottom: 1em;
+ line-height: 1.2em 
+}
 .App-intro {
   font-size: large;
 }
