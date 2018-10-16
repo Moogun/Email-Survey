@@ -21,7 +21,7 @@ class Payment extends React.Component {
     console.log('this.props', this.props);
     return (
       <StripeCheckout
-        name="Email Tracker"
+        name="This is a test."
         description="$5 for 5 emails"
         amount={500}
         // token={this.onToken}

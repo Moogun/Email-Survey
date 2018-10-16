@@ -19,8 +19,10 @@ module.exports = app => {
     const surveysPerPage = parseInt(pageSize);
     // console.log('------------', surveysToSkip, surveysPerPage, activePage, pageSize);
     const surveys = Survey.find({_user: req.user.id})
+        .sort({dateSent: -1})
         .skip(surveysToSkip)
         .limit(surveysPerPage)
+
 
     const count = Survey.find({_user: req.user.id}).countDocuments()
     Promise.all([surveys, count])
