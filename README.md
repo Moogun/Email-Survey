@@ -11,11 +11,5 @@
 
 ## Client - Server Architecture
 
-### Dev mode  
-            Browser
-
-            [ bundle.js stuff ] [ data from API ]
-
-server1     [ create-react-app ] [ proxy ]
-
-server2               [ Node/Express API ]
+### Dev - Prod Mode 
+![dev-prod](dev-prod.png)
