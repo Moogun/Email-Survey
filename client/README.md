@@ -1,7 +1,13 @@
-Frontend of Email Tracker
+## Eamil Surveys Project
 
-Tech Stacks
+## Tech Stacks
+### Frontend
 - React
 - Redux, Redux Thunk, React Router
 - Semantic UI React for CSS
-- Axios 
+- Axios
+
+### Backend
+- Node js
+- MongoDB
+-

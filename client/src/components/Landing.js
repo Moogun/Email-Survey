@@ -7,8 +7,8 @@ class Landing extends Component {
   render() {
     return (
       <Container>
-        <div className="text-box ">
-          <div className="App-title">Email Tracker</div>
+        <div className="text-box">
+          <div className="App-title">Email Surveys</div>
           <div>Now you can see how your customers respond to your email marketing </div>
         </div>
       </Container>

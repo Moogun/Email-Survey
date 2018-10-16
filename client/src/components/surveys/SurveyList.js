@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { fetchSurveys } from '../../actions'
-import { Container, Button, Segment, Header, Pagination, Table } from 'semantic-ui-react'
+import { Container, Segment, Header, Pagination, Table } from 'semantic-ui-react'
 
 class SurveyList extends Component {
 
@@ -70,7 +70,7 @@ class SurveyList extends Component {
                 onPageChange={this.handlePaginationChange}
                 size='mini'
                 siblingRange="1"
-                totalPages={!!count ? parseInt(count / 5) + 1 : 0}
+                totalPages={!!count ? parseInt(count / 5, 10) + 1 : 0}
                 secondary
              />
          </Segment>

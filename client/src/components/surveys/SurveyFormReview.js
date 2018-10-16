@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import formFields from './formFields';
 import { withRouter } from 'react-router-dom';
 import * as actions from '../../actions';
-import { Container, Button, Form, Table, Header } from 'semantic-ui-react'
+import { Container, Button, Table, Header } from 'semantic-ui-react'
 
 const SurveyFormReview = ({onCancel, formValues, submitSurvey, history}) => {
    const reviewFields = _.map(formFields, ({ name, label }) => {
