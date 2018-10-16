@@ -9,9 +9,9 @@
 7. We tabulate feedback `MongoDB`
 8. User can see report of all survey responses `Mongo + React + Redux`
 
-##. Client - Server Architecture
+## Client - Server Architecture
 
-###. Dev mode  
+### Dev mode  
             Browser
 
             [ bundle.js stuff ] [ data from API ]
