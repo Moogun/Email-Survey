@@ -4,54 +4,47 @@ import { fetchSurveys } from '../../actions'
 import { Container, Button, Segment, Header, Pagination, Table } from 'semantic-ui-react'
 
 class SurveyList extends Component {
-  state = {
-    activePage: 1,
-    boundaryRange: 1,
-    siblingRange: 1,
-    showEllipsis: true,
-    showFirstAndLastNav: true,
-    showPreviousAndNextNav: true,
-    totalPages: 50,
-  }
+
   handlePaginationChange = (e, { activePage }) => {
-      this.setState({ activePage })
-      this.handleFetchSurveys()
+      // activePage prop of Pagination component
+      // console.log('activePage', activePage);
+      this.handleFetchSurveys(activePage)
   }
-  handleFetchSurveys = () => {
-      const { activePage } = this.state
+
+  handleFetchSurveys = (chosenPage) => {
+      // initial fetching chosenPage == 1
       const pageSize = 5
-      this.props.fetchSurveys(activePage, pageSize)
+      this.props.fetchSurveys(chosenPage, pageSize)
   }
 
   componentDidMount() {
-      this.handleFetchSurveys()
+      // initial fetching for page 1
+      this.handleFetchSurveys(1)
   }
 
-
   renderSurveys() {
-    return this.props.surveys.map(survey => {
-      let date = new Date(survey.dateSent);
-      return (
-          <Table.Row key={survey._id}>
-            <Table.Cell>{date.getFullYear()+'-' + (date.getMonth()+1) + '-'+date.getDate()} </Table.Cell>
-            <Table.Cell>{survey.title} </Table.Cell>
-            <Table.Cell>{survey.body} </Table.Cell>
-            <Table.Cell>{survey.yes} </Table.Cell>
-            <Table.Cell>{survey.no} </Table.Cell>
-          </Table.Row>
-      )
-    })
+      const surveys = this.props.surveys
+      if (!!surveys['page'] && surveys['page'].length >0) {
+          return surveys.page.map(survey => {
+            let date = new Date(survey.dateSent);
+            return (
+                <Table.Row key={survey._id}>
+                  <Table.Cell>{date.getFullYear()+'-' + (date.getMonth()+1) + '-'+date.getDate()} </Table.Cell>
+                  <Table.Cell>{survey.title} </Table.Cell>
+                  <Table.Cell>{survey.body} </Table.Cell>
+                  <Table.Cell>{survey.yes} </Table.Cell>
+                  <Table.Cell>{survey.no} </Table.Cell>
+                </Table.Row>
+            )
+          })
+      }
   }
 
   render() {
-    const { activePage,
-      boundaryRange,
-      siblingRange,
-      showEllipsis,
-      showFirstAndLastNav,
-      showPreviousAndNextNav,
-      totalPages } = this.state
-    console.log('[surveys]', this.props.surveys, activePage);
+
+    const {count, chosenPage} = this.props.surveys
+    // console.log('[render surveys]', this.props.surveys, chosenPage);
+
     return (
       <Container>
         <Header as='h2'>Survey List</Header>
@@ -72,12 +65,12 @@ class SurveyList extends Component {
 
         <Segment basic textAlign='center'>
             <Pagination
-                activePage={activePage}
-                boundaryRange={boundaryRange}
+                activePage={!!chosenPage ? chosenPage : 0}
+                boundaryRange="1"
                 onPageChange={this.handlePaginationChange}
                 size='mini'
-                siblingRange={siblingRange}
-                totalPages={totalPages}
+                siblingRange="1"
+                totalPages={!!count ? parseInt(count / 5) + 1 : 0}
                 secondary
              />
          </Segment>

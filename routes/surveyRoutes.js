@@ -13,15 +13,26 @@ const Survey = mongoose.model('surveys')
 module.exports = app => {
     // /api/surveys?pageNumber=2&pageSize=10
   app.get('/api/surveys', requireLogin, async (req, res) => {
+
     const {activePage, pageSize}  = req.query;
     const surveysToSkip = (parseInt(activePage) -1) * parseInt(pageSize);
     const surveysPerPage = parseInt(pageSize);
-    console.log('------------', surveysToSkip, surveysPerPage, activePage, pageSize);
-    const surveys = await Survey.find({_user: req.user.id})
+    // console.log('------------', surveysToSkip, surveysPerPage, activePage, pageSize);
+    const surveys = Survey.find({_user: req.user.id})
         .skip(surveysToSkip)
         .limit(surveysPerPage)
 
-    res.send(surveys)
+    const count = Survey.find({_user: req.user.id}).countDocuments()
+    Promise.all([surveys, count])
+    .then((results) => {
+        return res.send({
+            page:results[0],
+            count: results[1],
+            chosenPage: parseInt(activePage)
+        })
+    }).catch((e) => {
+        console.log(e);
+    })
   })
 
   app.get('/api/surveys/:surveyId/:choice', (req, res) => {
@@ -34,10 +45,10 @@ module.exports = app => {
       console.log('event ------', event);
       switch (event.event) {
         case 'delivered':
-          console.log('11111');
+          console.log('[event]: delivered');
           break;
         case 'click':
-          console.log('22222', event.url);
+          console.log('[event]: ', event.url);
           const p = new Path('/api/surveys/:surveyId/:choice');
 
           _.chain(req.body)
@@ -67,10 +78,10 @@ module.exports = app => {
           res.send({})
           break;
         case 'open':
-          console.log('3333');
+          console.log('[event]: open');
           break;
         default:
-          console.log('0000');
+          console.log('case default');
       }
     })
   })
@@ -80,7 +91,7 @@ module.exports = app => {
    async (req, res) => {
 
     const {title, subject, body, recipients} = req.body
-    console.log(title, subject, body, recipients);
+    console.log('[/api/surveys] - post', title, subject, body, recipients);
     const survey = new Survey({
       title,
       subject,

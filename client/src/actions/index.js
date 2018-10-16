@@ -28,13 +28,14 @@ export const submitSurvey = (values, history) => async dispatch => {
   dispatch({type: FETCH_USER, payload: res.data})
 }
 
-export const fetchSurveys = (activePage, pageSize) => async (dispatch) => {
-    console.log('actions', activePage, pageSize);
-  const res = await axios.get('/api/surveys', {
+export const fetchSurveys = (chosenPage, pageSize) => async (dispatch) => {
+    // console.log('[actions]', 'chosenPage', chosenPage, 'pageSize', pageSize);
+    const res = await axios.get('/api/surveys', {
       params: {
-        activePage: activePage,
+        activePage: chosenPage,
         pageSize: pageSize
       }
     })
-  dispatch({type: FETCH_SURVEYS, payload: res.data})
+    // console.log('[actions] res', res);
+    dispatch({type: FETCH_SURVEYS, payload: res.data})
 }

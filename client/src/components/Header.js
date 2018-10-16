@@ -15,10 +15,12 @@ class Header extends Component {
   renderContent() {
     switch (this.props.authReducer) {
       case null:
+              console.log('null');
         return <Menu.Item
           name='deciding'
         />
       case false:
+              console.log('false');
         return <Menu.Item
           name='login'
           href='/auth/google'
