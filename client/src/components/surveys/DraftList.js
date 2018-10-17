@@ -7,7 +7,7 @@ class DraftList extends Component {
 
     return (
       <Container>
-        DraftList
+        DraftList (will be added)
       </Container>
     );
   }
