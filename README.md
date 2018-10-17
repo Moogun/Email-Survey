@@ -21,7 +21,7 @@
 ## DB Survey Schema
 
 ```
-    const surveySchema = new Schema({
+const surveySchema = new Schema({
      title: String,
      ...
      recipients: [RecipientSchema],
