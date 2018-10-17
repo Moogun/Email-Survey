@@ -14,6 +14,7 @@ module.exports = (survey) => {
         <div>
           <a href="${keys.redirectDomain}/api/surveys/${survey.id}/no">No</a>
         </div>
+        <div>This is an email sent from 'Email-Survey Project https://github.com/Moogun/Email-Survey'</div>
       </div>
     </body>
   </html>

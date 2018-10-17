@@ -10,6 +10,30 @@
 8. User can see report of all survey responses `Mongo + React + Redux`
 
 ## Client - Server Architecture
-
-### Dev - Prod Mode 
 ![dev-prod](dev-prod.png)
+
+## OAuth Flow
+![oAuth](oauth.png)
+
+## Client Side Component Hierarchy
+![client-components](client-components.png)
+
+## DB Survey Schema
+
+```
+    const surveySchema = new Schema({
+     title: String,
+     ...
+     recipients: [RecipientSchema],
+     ...
+     _user: {type: Schema.Types.ObjectId, ref: 'User'},
+     ...
+});
+```
+
+## Sendgrid Email Flow
+![sendgrid-flow](sendgrid-flow.png)
+
+## Deployment
+
+`Push to Github` -> `Push to CI` -> `CI Run tests and other tasks` -> ` CI deploy the code to Heroku` -> `Heroku builds the project`
