@@ -1,3 +1,5 @@
+## How to test
+1. live demo: https://node-react-dev.herokuapp.com
 
 ## The App's work flow
 1. User signs up via Google OAuth `Express server + MongoDB + PassportJS`
