@@ -32,6 +32,7 @@ class SurveyList extends Component {
                   <Table.Cell>{date.getFullYear()+'-' + (date.getMonth()+1) + '-'+date.getDate()} </Table.Cell>
                   <Table.Cell>{survey.title} </Table.Cell>
                   <Table.Cell>{survey.body} </Table.Cell>
+                  <Table.Cell>{survey.recipients.length}</Table.Cell>
                   <Table.Cell>{survey.yes} </Table.Cell>
                   <Table.Cell>{survey.no} </Table.Cell>
                 </Table.Row>
@@ -54,6 +55,7 @@ class SurveyList extends Component {
               <Table.HeaderCell width={1}>Sent</Table.HeaderCell>
               <Table.HeaderCell width={2}>Title</Table.HeaderCell>
               <Table.HeaderCell width={3}>Body</Table.HeaderCell>
+              <Table.HeaderCell width={1}>Sent to(# of Recipients)</Table.HeaderCell>
               <Table.HeaderCell width={1}>Yes</Table.HeaderCell>
               <Table.HeaderCell width={1}>No</Table.HeaderCell>
             </Table.Row>
