@@ -8,42 +8,41 @@ import Payment from './Payment'
 
 class Header extends Component {
 
-  state = { activeItem: 'home' }
-
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
-  renderContent() {
-    switch (this.props.authReducer) {
+  renderContent(activeItem, handleItemClick) {
+    switch (this.props.auth) {
       case null:
-              console.log('null');
-        return <Menu.Item
-          name='deciding'
-        />
-      case false:
-              console.log('false');
-        return <Menu.Item
-          name='login'
-          href='/auth/google'
-        />
-      default:
-        return [
-          <Menu.Item key={0}>Credits: {this.props.authReducer.credits}</Menu.Item>,
-          <Menu.Item key={1}><Payment /></Menu.Item>,
-          <Menu.Item key={2}
-            name='logout'
-            href='/api/logout'
-          />
-        ]
+          return <Menu secondary inverted> </Menu>
+      case false :
+          return <NonAuthMenu />
+      default :
+          return <AuthMenu auth={this.props.auth}/>
     }
   }
   render() {
-    const { activeItem } = this.state
-
-    console.log('auth', this.props.authReducer);
-
+    console.log(this.props);
     return (
       <Segment basic inverted color="teal">
           <Container>
+            {this.renderContent()}
+          </Container>
+      </Segment>
+    )
+  }
+}
+
+const mapStateToProps = ({ auth }) => {
+  return { auth }
+}
+export default connect(mapStateToProps)(Header)
+
+class AuthMenu  extends Component {
+    state = { activeItem: 'home' }
+    handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+    render() {
+        console.log('[auth menu]');
+        const { activeItem } = this.state
+        const {auth} = this.props
+        return (
             <Menu secondary inverted>
               <Menu.Item name='home'
                 active={activeItem === 'home'}
@@ -70,16 +69,39 @@ class Header extends Component {
               />
 
               <Menu.Menu position='right'>
-                {this.renderContent()}
+                  <Menu.Item key={0}>Credits: {auth.credits}</Menu.Item>
+                  <Menu.Item key={1}><Payment /></Menu.Item>
+                  <Menu.Item key={2}
+                    name='logout'
+                    href='/api/logout'
+                  />
               </Menu.Menu>
             </Menu>
-          </Container>
-      </Segment>
-    )
-  }
+        );
+    }
 }
 
-const mapStateToProps = ({ authReducer }) => {
-  return { authReducer }
+class NonAuthMenu  extends Component {
+    state = { activeItem: 'home' }
+    handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+    render() {
+        console.log('[non auth ]');
+        const { activeItem } = this.state
+        return (
+            <Menu secondary inverted>
+              <Menu.Item name='home'
+                active={activeItem === 'home'}
+                onClick={this.handleItemClick}
+                as={Link} to='/'
+              />
+              <Menu.Menu position='right'>
+                  <Menu.Item
+                    name='login'
+                    href='/auth/google'
+                  />
+              </Menu.Menu>
+            </Menu>
+        );
+    }
+
 }
-export default connect(mapStateToProps)(Header)

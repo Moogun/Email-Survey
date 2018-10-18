@@ -18,7 +18,7 @@ class Payment extends React.Component {
 
   render() {
     // debugger;
-    console.log('this.props', this.props);
+    // console.log('[Payment] this.props', this.props);
     return (
       <StripeCheckout
         name="This is a test."

@@ -4,7 +4,7 @@ import { reducer as formReducer } from 'redux-form'
 import surveyReducer from './surveysReducer'
 
 export default combineReducers({
-  authReducer,
+  auth: authReducer,
   form: formReducer,
   surveys: surveyReducer
 })
