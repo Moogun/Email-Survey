@@ -29,8 +29,9 @@ deploy:
     secure: hmEeKcPfXrSrxXIqKyXO/pe31h+UNIbhoMUnP5c4ACtuVqTa2F1hH4AxXcj//QrstaJVjema0H/ICRlyZFRXhmCkIjomuTbWI95vKCh60WbVpFNzMrGckZE1clvsp7nxcIFmjIGwisHZllFfQ82U47o/sJ8TjGTJTsgjENjKzPg5IoNHkJHOQd91RbgKgy9i2gmQHoKhvzN22HDML1me+gqE+Nm+ARCr1TXJI1S2/SljBGEGNqbg5PI52XhnbmflJV3Nq8WkoiHZqttJpPXfa4WBgl43CJeJoj7ibhgXlfrlNANVSNxoGZ80crROEsR/DcSV+B87WHSuTeEQBET4AUUhFvCI817RmX5QjrmacatBZs+Mf6waxN1Diecl9g81d/XwCM9L3UXrahCfS/2O2Kwp7L5byF1xfWEHo+Vdlzp+QMoBNcGZAxrftw9n5HPZ36sHM8Dk6H3UVEHPT1xgTGKLl1Lt72jNpBc/+AQAWXPIN4LY3XgQE80vR642dqr1FSBDNcESo5oMBYbuVUpHsVBjRJtHEHMVV0JjmePCeMhuDga0WLstMZW5tx+xEp7o/F0EwNv+Q3/dV6zdoRFPgovlcdXgRxhNphInNsJgRdO+ogwoocx8l85eYeVw+Scf1ErvBtQ/xB4TLRdorV5RKP1OkrOgxDv8i+45VmgbkLQ=
     # app: node-react-dev
     # on: dep
-    # on:
-      # all_branches: true
-    app:
-      master: node-react-dev
-      dep: node-react-dev
+    on:
+      all_branches: true
+     #error - counldn't find the app
+    # app:
+    #   master: node-react-dev
+    #   dep: node-react-dev
