@@ -2,7 +2,7 @@ import React from 'react'
 import StripeCheckout from 'react-stripe-checkout';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import { Button } from 'semantic-ui-react'
+import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 
 class Payment extends React.Component {
   // onToken = (token) => {

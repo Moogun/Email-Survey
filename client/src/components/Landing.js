@@ -1,5 +1,4 @@
-
-import { Container } from 'semantic-ui-react'
+import Container from 'semantic-ui-react/dist/commonjs/elements/Container';
 import React, { Component } from 'react';
 
 class Landing extends Component {

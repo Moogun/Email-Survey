@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
 import { Link } from 'react-router-dom'
-import { Menu, Container, Segment } from 'semantic-ui-react'
+import Container from 'semantic-ui-react/dist/commonjs/elements/Container';
+import Segment from 'semantic-ui-react/dist/commonjs/elements/Segment';
+import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
 
 import Payment from './Payment'
 

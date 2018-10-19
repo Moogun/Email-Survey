@@ -1,13 +1,18 @@
-import _ from 'lodash';
+// import _ from 'lodash'
+import _map from 'lodash/map';
 import React from 'react';
 import { connect } from 'react-redux';
 import formFields from './formFields';
 import { withRouter } from 'react-router-dom';
 import * as actions from '../../actions';
-import { Container, Button, Table, Header } from 'semantic-ui-react'
+
+import Container from 'semantic-ui-react/dist/commonjs/elements/Container';
+import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
+import Header from 'semantic-ui-react/dist/commonjs/elements/Header';
+import Table from 'semantic-ui-react/dist/commonjs/collections/Table';
 
 const SurveyFormReview = ({onCancel, formValues, submitSurvey, history}) => {
-   const reviewFields = _.map(formFields, ({ name, label }) => {
+   const reviewFields = _map(formFields, ({ name, label }) => {
      return (
           <Table.Row key={name}>
             <Table.Cell width={4}>{label}</Table.Cell>

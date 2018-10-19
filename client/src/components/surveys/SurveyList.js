@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { fetchSurveys } from '../../actions'
-import { Container, Segment, Header, Pagination, Table } from 'semantic-ui-react'
+
+import Container from 'semantic-ui-react/dist/commonjs/elements/Container';
+import Segment from 'semantic-ui-react/dist/commonjs/elements/Segment';
+import Header from 'semantic-ui-react/dist/commonjs/elements/Header';
+import Pagination from 'semantic-ui-react/dist/commonjs/addons/Pagination';
+import Table from 'semantic-ui-react/dist/commonjs/collections/Table';
 
 class SurveyList extends Component {
 

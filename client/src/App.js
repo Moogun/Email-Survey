@@ -5,17 +5,29 @@ import * as actions from './actions'
 
 import Header from './components/Header'
 import Landing from './components/Landing'
-import SurveyNew from './components/surveys/SurveyNew'
-import DraftList from './components/surveys/DraftList'
-import './App.css'
 
 import Loadable from 'react-loadable'
 const loadableSurveyList = Loadable({
     loader: () => import('./components/surveys/SurveyList'),
     loading() {
-        return  <div>loading</div>
+        return  <div></div>
     }
 })
+
+const loadableSurveyNew = Loadable({
+    loader: () => import('./components/surveys/SurveyNew'),
+    loading() {
+        return  <div></div>
+    }
+})
+
+const loadableDraftList = Loadable({
+    loader: () => import('./components/surveys/DraftList'),
+    loading() {
+        return  <div></div>
+    }
+})
+
 
 class App extends Component {
 
@@ -31,8 +43,8 @@ class App extends Component {
             <Header />
             <Route exact path="/" component={Landing} />
             <Route exact path="/surveys" component={loadableSurveyList} />
-            <Route path="/surveys/new" component={SurveyNew} />
-            <Route exact path="/draft" component={DraftList} />
+            <Route path="/surveys/new" component={loadableSurveyNew} />
+            <Route exact path="/draft" component={loadableDraftList} />
           </div>
         </Router>
       </div>

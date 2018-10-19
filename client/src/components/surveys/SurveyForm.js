@@ -1,15 +1,21 @@
-import _ from 'lodash';
+// import _ from 'lodash'
+import _map from 'lodash/map';
+import _each from 'lodash/each';
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import SurveyField from './SurveyField';
 import validateEmails from '../../utils/validateEmails';
 import formFields from './formFields';
-import { Container, Button, Form, Header } from 'semantic-ui-react'
+
+import Container from 'semantic-ui-react/dist/commonjs/elements/Container';
+import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
+import Header from 'semantic-ui-react/dist/commonjs/elements/Header';
+import Form from 'semantic-ui-react/dist/commonjs/collections/Form';
 
 class SurveyForm  extends Component {
   renderFields() {
-    return _.map(formFields, ({label, name}) => {
+    return _map(formFields, ({label, name}) => {
        return <Form.Field key={name}>
          <label>{label}</label>
          <Field key={name} name={name} component={SurveyField} />
@@ -36,7 +42,7 @@ function validate(values) {
 
   errors.emails = validateEmails(values.emails || '');
 
-  _.each(formFields, ({ name }) => {
+  _each(formFields, ({ name }) => {
     if (!values[name]) {
       errors[name] = 'You must provide a value';
     }
