@@ -1,4 +1,5 @@
 const express = require('express');
+const compression = require('compression');
 require('./models/User')
 require('./models/Survey')
 require('./services/passport')
@@ -12,6 +13,7 @@ const keys = require('./config/keys')
 mongoose.connect(keys.mongoURI, {useNewUrlParser: true})
 
 const app = express();
+app.use(compression())
 
 app.use(bodyParser.json())
 app.use(
