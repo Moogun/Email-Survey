@@ -11,7 +11,7 @@
     "start": "node index.js",
     "server": "nodemon --delay 1500ms index.js",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run webhook\"",
+    "dev": "concurrently \"npm run server\" \"npm run client\" ",
     "build": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
     "heroku-postbuild": "npm run build",
     "webhook": "lt -p 5000 -s moogunjung1983",
@@ -38,6 +38,7 @@
     "stripe": "^6.10.0"
   },
   "devDependencies": {
-    "concurrently": "^4.0.1"
+    "concurrently": "^4.0.1",
+    "nodemon": "^1.18.9"
   }
 }

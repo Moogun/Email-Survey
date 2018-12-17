@@ -23,7 +23,8 @@ class Header extends Component {
   render() {
     console.log(this.props);
     return (
-      <Segment basic inverted color="teal">
+      // <Segment basic inverted color="teal">
+      <Segment>
           <Container>
             {this.renderContent()}
           </Container>
