@@ -24,7 +24,7 @@ class Header extends Component {
     console.log(this.props);
     return (
       // <Segment basic inverted color="teal">
-      <Segment>
+      <Segment basic>
           <Container>
             {this.renderContent()}
           </Container>
@@ -46,7 +46,7 @@ class AuthMenu  extends Component {
         const { activeItem } = this.state
         const {auth} = this.props
         return (
-            <Menu secondary inverted>
+            <Menu secondary>
               <Menu.Item name='home'
                 active={activeItem === 'home'}
                 onClick={this.handleItemClick}
@@ -91,7 +91,7 @@ class NonAuthMenu  extends Component {
         console.log('[non auth ]');
         const { activeItem } = this.state
         return (
-            <Menu secondary inverted>
+            <Menu secondary pointing>
               <Menu.Item name='home'
                 active={activeItem === 'home'}
                 onClick={this.handleItemClick}
