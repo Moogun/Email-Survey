@@ -1,24 +1,29 @@
 import Container from 'semantic-ui-react/dist/commonjs/elements/Container';
 import React, { Component } from 'react';
+import '../App.css'
 
 class Landing extends Component {
 
   render() {
     return (
       <Container>
-        <div className="text-box">
-          <div className="App-title">Email Surveys</div>
-          <div className="App-title-sub">Now you can see how your customers respond to your email marketing </div>
+        <header className="header">
+          <div className="text-box">
+              <h1 className="heading-primary">
+                <span className="heading-primary-main">Email Surveys</span>
+                <span className="heading-primary-sub">Now you can see how your customers respond to your marketing emails</span>
+              </h1>
+          </div>
+        </header>
 
-          <div>How to add credits (for test purpose)
-              <ol>
+          <div className="instruction">
+              <h1 className="instruction-title">How to add credits (for test purpose)</h1>
+              <ol className="instruction-steps">
                   <li>Click 'Add Credits'</li>
                   <li>Enter 4242 4242 4242 4242 for the card number</li>
                   <li>Enter arbitrary expiration date and CVC (eg. 11/20 , 111)</li>
-                  <li>5 credits will be added</li>
               </ol>
           </div>
-        </div>
       </Container>
 
     );
