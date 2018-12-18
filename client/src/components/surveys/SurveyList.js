@@ -53,16 +53,20 @@ class SurveyList extends Component {
 
     return (
       <Container>
-        <Header as='h2'>Survey List</Header>
+        <div className="section">
+          <h1 className="text-box">
+            <span className="section-heading">Survey List</span>
+          </h1>
+        </div>
         <Table padded selectable>
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell width={1}>Sent</Table.HeaderCell>
+              <Table.HeaderCell width={1}>Date Sent</Table.HeaderCell>
               <Table.HeaderCell width={2}>Title</Table.HeaderCell>
               <Table.HeaderCell width={3}>Body</Table.HeaderCell>
-              <Table.HeaderCell width={1}>Sent to(# of Recipients)</Table.HeaderCell>
-              <Table.HeaderCell width={1}>Yes</Table.HeaderCell>
-              <Table.HeaderCell width={1}>No</Table.HeaderCell>
+              <Table.HeaderCell width={1}>Num of Recipients</Table.HeaderCell>
+              <Table.HeaderCell width={1}>Reply: Yes</Table.HeaderCell>
+              <Table.HeaderCell width={1}>Reply: No</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>

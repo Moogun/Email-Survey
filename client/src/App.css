@@ -106,3 +106,22 @@
   color: slategrey;
   text-align: left;
 }
+
+.section {
+  height: 10vh;
+  background-image:  linear-gradient(
+    to right bottom,
+    rgba(126, 213, 111, 0.8),
+    rgba(40, 180, 133, 0.8)
+    );
+    background-size: cover;
+    background-position: top;
+
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.section-heading {
+  color: #fff;
+  text-transform: uppercase;
+}

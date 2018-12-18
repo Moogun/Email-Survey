@@ -26,7 +26,11 @@ class SurveyForm  extends Component {
   render() {
     return (
       <Container>
-        <Header as='h2'>New Survey</Header>
+        <div className="section">
+          <h1 className="text-box">
+            <span className="section-heading">New Survey</span>
+          </h1>
+        </div>
         <Form action="" onSubmit={this.props.handleSubmit(() => this.props.onSurveySubmit())}>
           {this.renderFields()}
           <Button color='red' as={Link} to="/surveys">Cancel</Button>

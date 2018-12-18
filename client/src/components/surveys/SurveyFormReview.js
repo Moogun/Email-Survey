@@ -23,7 +23,11 @@ const SurveyFormReview = ({onCancel, formValues, submitSurvey, history}) => {
 
    return (
      <Container>
-       <Header as='h2'>Please confirm your entries</Header>
+       <div className="section">
+         <h1 className="text-box">
+           <span className="section-heading">Please confirm your entries</span>
+         </h1>
+       </div>
         <Table padded>
             <Table.Body>
                 {reviewFields}
