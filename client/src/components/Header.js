@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-
+import logo from '../assets/img/logo.svg'
 import Payment from './Payment'
 
 class Header extends Component {
@@ -22,8 +22,8 @@ class Header extends Component {
       <div className="container">
         <header className="header">
           <img
-            // src={logo}
-            alt="trillo logo" className="logo"/>
+            src={logo}
+            alt="Email Survey" className="logo"/>
             {this.renderContent()}
         </header>
       </div>
