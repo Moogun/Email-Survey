@@ -46,7 +46,7 @@ class App extends Component {
                       </Link>
                   </li>
                   <li className="side-nav__item">
-                    <Link to="/newsurvey" className="side-nav__link">
+                    <Link to="/surveys/new" className="side-nav__link">
                       <img src={newsurvey} alt="" className="side-nav__icon"/>
                       <span>New Survey</span>
                     </Link>

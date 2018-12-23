@@ -8,35 +8,47 @@ import SurveyField from './SurveyField';
 import validateEmails from '../../utils/validateEmails';
 import formFields from './formFields';
 
-import Container from 'semantic-ui-react/dist/commonjs/elements/Container';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Header from 'semantic-ui-react/dist/commonjs/elements/Header';
-import Form from 'semantic-ui-react/dist/commonjs/collections/Form';
-
 class SurveyForm  extends Component {
   renderFields() {
     return _map(formFields, ({label, name}) => {
-       return <Form.Field key={name}>
-         <label>{label}</label>
-         <Field key={name} name={name} component={SurveyField} />
-      </Form.Field>
+       return <div key={name} className="form__group">
+        <label for="name" className={label != 'Email Body' ? "form__label" : "form__label form__label__Email-Body"}>{label}</label>
+        {label != 'Email Body'
+          ? <input key={name} name={name} component={SurveyField} type="text" className="form__input" placeholder={name} id="name" required />
+          : <textarea type="text" className="form__textarea" placeholder="Here is a great news..." id="name" required/>
+        }
+      </div>
     })
   }
 
   render() {
     return (
-      <Container>
-        <div className="section">
-          <h1 className="text-box">
-            <span className="section-heading">New Survey</span>
+      <>
+        <div class="overview">
+          <h1 class="overview__heading">
+            New Survey
           </h1>
         </div>
-        <Form action="" onSubmit={this.props.handleSubmit(() => this.props.onSurveySubmit())}>
-          {this.renderFields()}
-          <Button color='red' as={Link} to="/surveys">Cancel</Button>
-          <Button primary floated='right' type="submit">Review</Button>
-        </Form>
-      </Container>
+        <div class="detail">
+          <div class="description">
+            <div className="campaign">
+                  <form action="" className="form" onSubmit={this.props.handleSubmit(() => this.props.onSurveySubmit())}>
+                    {this.renderFields()}
+                    <div className="form__group__button">
+                      <Link to="/surveys" className="form__cancel">
+                        <span>Cancel</span>
+                      </Link>
+                      <Link to="/surveys" className="form__review">
+                        <span>Review</span>
+                      </Link>
+                    </div>
+                  </form>
+              </div>
+
+          </div>
+        </div>
+
+      </>
     );
   }
 }
