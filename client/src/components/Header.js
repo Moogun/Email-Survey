@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-
 import { Link } from 'react-router-dom'
-import Container from 'semantic-ui-react/dist/commonjs/elements/Container';
-import Segment from 'semantic-ui-react/dist/commonjs/elements/Segment';
-import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
 
 import Payment from './Payment'
 
@@ -13,7 +9,7 @@ class Header extends Component {
   renderContent(activeItem, handleItemClick) {
     switch (this.props.auth) {
       case null:
-          return <Menu secondary inverted> </Menu>
+          return <div></div>
       case false :
           return <NonAuthMenu />
       default :
@@ -23,12 +19,15 @@ class Header extends Component {
   render() {
     console.log(this.props);
     return (
-      // <Segment basic inverted color="teal">
-      <Segment basic>
-          <Container>
+      <div className="container">
+        <header className="header">
+          <img
+            // src={logo}
+            alt="trillo logo" className="logo"/>
             {this.renderContent()}
-          </Container>
-      </Segment>
+        </header>
+      </div>
+
     )
   }
 }
@@ -46,40 +45,17 @@ class AuthMenu  extends Component {
         const { activeItem } = this.state
         const {auth} = this.props
         return (
-            <Menu secondary>
-              <Menu.Item name='home'
-                active={activeItem === 'home'}
-                onClick={this.handleItemClick}
-                as={Link} to='/'
-              />
-              <Menu.Item
-                name='New Survey'
-                active={activeItem === 'New Survey'}
-                onClick={this.handleItemClick}
-                as={Link} to='/surveys/new'
-              />
-              <Menu.Item
-                name='draft'
-                active={activeItem === 'draft'}
-                onClick={this.handleItemClick}
-                as={Link} to='/draft'
-              />
-              <Menu.Item
-                name='list'
-                active={activeItem === 'list'}
-                onClick={this.handleItemClick}
-                as={Link} to='/surveys'
-              />
-
-              <Menu.Menu position='right'>
-                  <Menu.Item key={0}>Credits: {auth.credits}</Menu.Item>
-                  <Menu.Item key={1}><Payment /></Menu.Item>
-                  <Menu.Item key={2}
-                    name='logout'
-                    href='/api/logout'
-                  />
-              </Menu.Menu>
-            </Menu>
+          <nav className="user-nav">
+            <div className="user-nav__icon-box">
+              Credits: {auth.credits}
+            </div>
+            <div className="user-nav__icon-box">
+              <Payment />
+            </div>
+            <div className="user-nav__user">
+              <a href='/api/logout' className="user-nav__user-name">logout</a>
+            </div>
+          </nav>
         );
     }
 }
@@ -91,20 +67,11 @@ class NonAuthMenu  extends Component {
         console.log('[non auth ]');
         const { activeItem } = this.state
         return (
-            <Menu secondary pointing>
-              <Menu.Item name='home'
-                active={activeItem === 'home'}
-                onClick={this.handleItemClick}
-                as={Link} to='/'
-              />
-              <Menu.Menu position='right'>
-                  <Menu.Item
-                    name='login'
-                    href='/auth/google'
-                  />
-              </Menu.Menu>
-            </Menu>
+          <nav className="user-nav">
+            <div className="user-nav__icon-box">
+              <a href='/api/login' className="user-nav__user-name">login</a>
+            </div>
+          </nav>
         );
     }
-
 }
