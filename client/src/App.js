@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import * as actions from './actions'
 
@@ -40,20 +40,21 @@ class App extends Component {
               <nav className="sidebar">
                 <ul className="side-nav">
                   <li className="side-nav__item side-nav__item--active">
-                    <a href="#" className="side-nav__link">
-                      <img src={dashboard} alt="" className="side-nav__icon"/>
-                      <span>Dashboard</span>
-                    </a>
+                      <Link to="/surveys" className="side-nav__link">
+                        <img src={dashboard} alt="" className="side-nav__icon"/>
+                        <span>Dashboard</span>
+                      </Link>
                   </li>
                   <li className="side-nav__item">
-                    <a href="#" className="side-nav__link">
+                    <Link to="/newsurvey" className="side-nav__link">
                       <img src={newsurvey} alt="" className="side-nav__icon"/>
                       <span>New Survey</span>
-                    </a>
+                    </Link>
+
                   </li>
                 </ul>
                 <div className="legal">
-                  &copy; 2017 by trillo. All rights reserved.
+                  &copy; 2018 by Email Marketing. All rights reserved.
                 </div>
               </nav>
               <main className="hotel-view">
