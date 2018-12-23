@@ -1,0 +1,19 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: var(--color-primary-dark);
+  color: var(--color-grey-light-1);
+}
+tr:hover:not(:first-child) {
+  background-color: var(--color-grey-light-2);
+  cursor: pointer;
+}
