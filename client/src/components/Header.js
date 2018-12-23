@@ -19,15 +19,12 @@ class Header extends Component {
   render() {
     console.log(this.props);
     return (
-      <div className="container">
         <header className="header">
           <img
             src={logo}
             alt="Email Survey" className="logo"/>
             {this.renderContent()}
         </header>
-      </div>
-
     )
   }
 }

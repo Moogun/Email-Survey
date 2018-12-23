@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import * as actions from './actions'
 
+import dashboard from './assets/img/dashboard.svg'
+import newsurvey from './assets/img/newsurvey.svg'
+
 import Header from './components/Header'
 import Landing from './components/Landing'
 
@@ -21,14 +24,6 @@ const loadableSurveyNew = Loadable({
     }
 })
 
-const loadableDraftList = Loadable({
-    loader: () => import('./components/surveys/DraftList'),
-    loading() {
-        return  <div></div>
-    }
-})
-
-
 class App extends Component {
 
   componentDidMount(){
@@ -39,12 +34,34 @@ class App extends Component {
     return (
       <div>
         <Router>
-          <div>
+          <div className="container">
             <Header />
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/surveys" component={loadableSurveyList} />
-            <Route path="/surveys/new" component={loadableSurveyNew} />
-            <Route exact path="/draft" component={loadableDraftList} />
+            <div className="content">
+              <nav className="sidebar">
+                <ul className="side-nav">
+                  <li className="side-nav__item side-nav__item--active">
+                    <a href="#" className="side-nav__link">
+                      <img src={dashboard} alt="" className="side-nav__icon"/>
+                      <span>Dashboard</span>
+                    </a>
+                  </li>
+                  <li className="side-nav__item">
+                    <a href="#" className="side-nav__link">
+                      <img src={newsurvey} alt="" className="side-nav__icon"/>
+                      <span>New Survey</span>
+                    </a>
+                  </li>
+                </ul>
+                <div className="legal">
+                  &copy; 2017 by trillo. All rights reserved.
+                </div>
+              </nav>
+              <main className="hotel-view">
+                {/* <Route exact path="/" component={Landing} /> */}
+                <Route exact path="/surveys" component={loadableSurveyList} />
+                <Route path="/surveys/new" component={loadableSurveyNew} />
+                </main>
+              </div>
           </div>
         </Router>
       </div>
