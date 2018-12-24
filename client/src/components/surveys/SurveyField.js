@@ -1,14 +1,14 @@
 import React from 'react';
-export default ({label, input, className, meta: {error, touched} }) => {
-  console.log('className', className);
+export default ({label, input, style, meta: {error, touched} }) => {
+  console.log('input.name', input.name);
   return (
-    <div>
-      {input.name !== 'Email Body'
-      ? <input type="text" {...input} className={className} />
-      : <textarea type="text" {...input} className={className}/> }
-      <div>
+    <>
+      {input.name !== 'body'
+      ? <input type="text" {...input} className={style} />
+      : <textarea type="text" {...input} className={style}/> }
+      <div style={{fontSize: "1rem", color: "red"}}>
         {touched && error}
       </div>
-    </div>
+    </>
   )
 }

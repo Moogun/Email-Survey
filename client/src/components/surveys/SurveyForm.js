@@ -10,17 +10,17 @@ import formFields from './formFields';
 
 class SurveyForm  extends Component {
   renderFields() {
-    return _map(formFields, ({label, name}) => {
-       return <div key={name} className="form__group">
-                <label className={label !== 'Email Body' ? "form__label" : "form__label form__label__Email-Body"}>{label}</label>
-                  {/* {label != 'Email Body'
-                ? <input key={name} name={name} type="text" className="form__input" placeholder={name} id="name" required />
-                : <textarea type="text" className="form__textarea" placeholder="Here is a great news..." id="name" required/> */}
-                 <Field key={name} name={name} component={SurveyField} className={label !== 'Email Body' ? "form__input" : "form__textarea"}/>
-        }
-      </div>
-    })
-  }
+  return _map(formFields, ({label, name}) => {
+    return <div key={name} className="form__group">
+      <label className={label !== 'Email Body'
+          ? "form__label"
+          : "form__label form__label__Email-Body"}>{label}</label>
+      <Field key={name} name={name} component={SurveyField} style={label !== 'Email Body'
+          ? "form__input"
+          : "form__textarea"}/>
+    </div>
+  })
+}
 
   render() {
     // console.log(this.props.handleSubmit());
@@ -61,7 +61,7 @@ function validate(values) {
 
   _each(formFields, ({ name }) => {
     if (!values[name]) {
-      errors[name] = 'You must provide a value';
+      errors[name] = 'Required';
     }
   });
 
