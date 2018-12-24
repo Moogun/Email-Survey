@@ -48,6 +48,23 @@ module.exports = app => {
       switch (event.event) {
         case 'delivered':
           console.log('[event]: delivered');
+
+          // const events = _.map(req.body, (event) => {
+          //   const pathname = new URL(event.url).pathname
+          //   const p = new Path('/')
+          // })
+          break;
+        case 'open':
+          console.log('[event]: open');
+          const events = _.map(req.body, ({email, timestamp, sg_message_id, useragent}) => {
+            console.log('[email]', '[timestamp]', '[sg_message_id]', '[useragent]');
+            console.log(email, timestamp, sg_message_id, useragent);
+          })
+          // email,
+          // timestamp,
+          // ip:
+          // sg_message_id,
+          // useragent,
           break;
         case 'click':
           console.log('[event]: ', event.url);
@@ -78,9 +95,6 @@ module.exports = app => {
             .value()
 
           res.send({})
-          break;
-        case 'open':
-          console.log('[event]: open');
           break;
         default:
           console.log('case default');

@@ -1,0 +1,11 @@
+.hamburger {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 2rem;
+
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
