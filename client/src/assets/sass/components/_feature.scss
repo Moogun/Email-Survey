@@ -1,0 +1,25 @@
+
+.section_feature {
+  // background-color: var(--color-grey-light-1);
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 3rem;
+
+  // @media only screen and (max-width: $bp-small) {
+  //     flex-direction: row-reverse;
+  // }
+
+  &_box {
+    flex-grow: 1;
+    position: relative;
+    background-color: white;
+    margin: 1rem;
+    text-align: center;
+  }
+
+  &_img {
+    width: 50%;
+  }
+}

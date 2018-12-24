@@ -1,13 +1,56 @@
 import Container from 'semantic-ui-react/dist/commonjs/elements/Container';
 import React, { Component } from 'react';
-import '../App.css'
+import logo from '../assets/img/logo.svg'
 
 class Landing extends Component {
 
   render() {
     return (
-      <div className="landing">
-        asdf
+      <div className="index">
+        <div className="section_landing">
+            <div className="section_landing_box">
+              <div className="section_landing_text-box">
+                  <h1 className="section_landing_text-box-primary">Email Marketing</h1>
+                  <h1 className="section_landing_text-box-secondary">See Customer's Response</h1>
+              </div>
+            </div>
+            <div className="section_landing_box">
+              <img
+                src={logo}
+                alt="Email Survey" className="section_landing_img"/>
+            </div>
+        </div>
+
+
+        <div className="section_feature">
+            <div className="section_feature_box">
+              <img
+                src={logo}
+                alt="Email Survey" className="section_feature_img"/>
+              <p>something</p>
+            </div>
+            <div className="section_feature_box">
+              <img
+                src={logo}
+                alt="Email Survey" className="section_feature_img"/>
+              <p>something</p>
+            </div>
+            <div className="section_feature_box">
+              <img
+                src={logo}
+                alt="Email Survey" className="section_feature_img"/>
+              <p>something</p>
+            </div>
+        </div>
+
+        <div className="section_action">
+          dummy
+        </div>
+
+        <div className="section_sth">
+          dummy
+        </div>
+
       </div>
     );
   }
