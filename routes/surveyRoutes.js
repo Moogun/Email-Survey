@@ -92,13 +92,14 @@ module.exports = app => {
    requireLogin, requireCredits,
    async (req, res) => {
 
-    const {title, subject, body, recipients} = req.body
-    console.log('[/api/surveys] - post', title, subject, body, recipients);
+    const {title, subject, body, recipients, sender} = req.body
+    console.log('[/api/surveys] - post', title, subject, body, recipients, sender);
     const survey = new Survey({
       title,
       subject,
       body,
       recipients: recipients.split(',').map(email => ({email: email.trim() })),
+      sender,
       _user: req.user.id,
       dateSent: Date.now()
     })

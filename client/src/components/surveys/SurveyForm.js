@@ -48,7 +48,6 @@ class SurveyForm  extends Component {
             </div>
           </div>
         </div>
-
       </>
     );
   }
@@ -57,7 +56,8 @@ class SurveyForm  extends Component {
 function validate(values) {
   const errors = {};
 
-  errors.emails = validateEmails(values.emails || '');
+  errors.recipients = validateEmails(values.recipients || '');
+  errors.sender = validateEmails(values.sender || '');
 
   _each(formFields, ({ name }) => {
     if (!values[name]) {

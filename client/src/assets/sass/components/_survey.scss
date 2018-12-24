@@ -107,18 +107,22 @@
     flex-direction: row;
     justify-content: space-between;
     margin-top: 3rem;
+
   }
   &__cancel {
     font-size: 1.5rem;
     border: none;
     padding: 1rem;
     background-color: var(--color-red-dark-1);
-    color: var(--color-grey-light-1)
-  }
+    color: var(--color-grey-light-1);
 
-  &__cancel:hover {
-    background-color: var(--color-red-light-1);
-    color: var(--color-grey-light-1)
+    text-transform: uppercase;
+    width: 9rem;
+
+    &:hover {
+      background-color: var(--color-red-light-1);
+      color: var(--color-grey-light-1)
+    }
   }
 
   &__review {
@@ -126,15 +130,51 @@
     border: none;
     padding: 1rem;
     background-color: var(--color-primary);
-    color: var(--color-grey-light-1)
+    color: var(--color-grey-light-1);
+
+    text-transform: uppercase;
+    width: 9rem;
+
+    &:hover {
+      cursor: pointer;
+      background-color: var(--color-primary-light-1);
+      color: var(--color-grey-light-1)
+    }
   }
 
-  &__review:hover {
-    cursor: pointer;
+  &__goback {
+    font-size: 1.5rem;
+    border: none;
+    padding: 1rem;
+    background-color: #fab95b;
+    color: var(--color-grey-light-1);
+
+    text-transform: uppercase;
+    width: 9rem;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #f89d13;
+      color: var(--color-grey-light-1)
+    }
+  }
+
+  &__send {
+    font-size: 1.5rem;
+    border: none;
+    padding: 1rem;
     background-color: var(--color-primary-light-1);
-    color: var(--color-grey-light-1)
-  }
+    color: var(--color-grey-light-1);
 
+    text-transform: uppercase;
+    width: 9rem;
+
+    &:hover {
+      cursor: pointer;
+      background-color: var(--color-primary-dark);
+      color: var(--color-grey-light-1)
+    }
+  }
 
 }
 
