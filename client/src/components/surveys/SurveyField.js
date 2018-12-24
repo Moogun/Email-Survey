@@ -12,6 +12,3 @@ export default ({label, input, className, meta: {error, touched} }) => {
     </div>
   )
 }
-
-{/* <label htmlFor="">{label}</label> */}
-{/* {input.name !== 'body' ? <input type="text" {...input}/> : <textarea rows="5" {...input}/>} */}

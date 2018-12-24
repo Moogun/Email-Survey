@@ -29,14 +29,48 @@ class App extends Component {
   componentDidMount() {
     this.props.fetchUser()
   }
+  renderContent() {
+    if (this.props.auth) {
+      return (
+        <div className="content">
+          <nav className="sidebar">
+            <ul className="side-nav">
+              {/* side-nav__item--active */}
+              <li className="side-nav__item">
+                <Link to="/surveys" className="side-nav__link">
+                  <img src={dashboard} alt="" className="side-nav__icon"/>
+                  <span>Dashboard</span>
+                </Link>
+              </li>
+              <li className="side-nav__item">
+                <Link to="/surveys/new" className="side-nav__link">
+                  <img src={newsurvey} alt="" className="side-nav__icon"/>
+                  <span>New Survey</span>
+                </Link>
 
+              </li>
+            </ul>
+            <div className="legal">
+              &copy; 2018 by Email Marketing. All rights reserved.
+            </div>
+          </nav>
+          <main className="hotel-view">
+            <Route exact="exact" path="/surveys" component={loadableSurveyList}/>
+            <Route path="/surveys/new" component={loadableSurveyNew}/>
+          </main>
+        </div>
+      );
+    } else {
+      return (<Landing></Landing>)
+    }
+  }
   render() {
     console.log('[app]', this.props.auth);
     return (<div>
       <Router>
         <div className="container">
           <Header/>
-          <Landing></Landing>
+          {this.renderContent()}
         </div>
       </Router>
     </div>);
@@ -48,32 +82,3 @@ const mapStateToProps = ({auth}) => {
 }
 
 export default connect(mapStateToProps, actions)(App);
-{/* <Route exact path="/" component={Landing} /> */}
-
-// {/* <div className="content">
-//   <nav className="sidebar">
-//     <ul className="side-nav">
-//       {/* side-nav__item--active */}
-//       <li className="side-nav__item">
-//         <Link to="/surveys" className="side-nav__link">
-//           <img src={dashboard} alt="" className="side-nav__icon"/>
-//           <span>Dashboard</span>
-//         </Link>
-//       </li>
-//       <li className="side-nav__item">
-//         <Link to="/surveys/new" className="side-nav__link">
-//           <img src={newsurvey} alt="" className="side-nav__icon"/>
-//           <span>New Survey</span>
-//         </Link>
-//
-//       </li>
-//     </ul>
-//     <div className="legal">
-//       &copy; 2018 by Email Marketing. All rights reserved.
-//     </div>
-//   </nav>
-//   <main className="hotel-view">
-//     <Route exact="exact" path="/surveys" component={loadableSurveyList}/>
-//     <Route path="/surveys/new" component={loadableSurveyNew}/>
-//   </main>
-// </div> */}
