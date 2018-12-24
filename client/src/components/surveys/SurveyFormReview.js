@@ -13,6 +13,7 @@ import Table from 'semantic-ui-react/dist/commonjs/collections/Table';
 
 const SurveyFormReview = ({onCancel, formValues, submitSurvey, history}) => {
    const reviewFields = _map(formFields, ({ name, label }) => {
+     console.log('name', name, 'label', label, 'formValues[name]', formValues);
      return (
           <Table.Row key={name}>
             <Table.Cell width={4}>{label}</Table.Cell>

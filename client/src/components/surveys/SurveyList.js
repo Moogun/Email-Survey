@@ -53,15 +53,16 @@ class SurveyList extends Component {
 
     return (
       <>
-        <div class="overview">
-          <h1 class="overview__heading">
+        <div className="overview">
+          <h1 className="overview__heading">
             Dashboard
           </h1>
         </div>
-        <div class="detail">
-          <div class="description">
+        <div className="detail">
+          <div className="description">
             <div className="campaign__list">
                <table>
+                 <tbody>
                    <tr>
                      <th>Date</th>
                      <th>Campaign</th>
@@ -74,6 +75,7 @@ class SurveyList extends Component {
                      <th>sth</th>
                    </tr>
                    {this.renderSurveys()}
+                   </tbody>
                  </table>
              </div>
 

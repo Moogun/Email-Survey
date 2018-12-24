@@ -130,6 +130,7 @@
   }
 
   &__review:hover {
+    cursor: pointer;
     background-color: var(--color-primary-light-1);
     color: var(--color-grey-light-1)
   }
