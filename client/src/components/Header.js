@@ -20,10 +20,17 @@ class Header extends Component {
     console.log(this.props);
     return (
         <header className="header">
+          {/* <Link to="/" >
+            <img src={dashboard} alt="" className="side-nav__icon"/>
+            <span>Dashboard</span>
+          </Link> */}
+          <Link to="/" className="logo_box">
           <img
             src={logo}
             alt="Email Survey" className="logo"/>
+            <span>Email Marketing</span>
             {this.renderContent()}
+          </Link>
         </header>
     )
   }

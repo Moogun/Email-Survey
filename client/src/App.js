@@ -39,7 +39,8 @@ class App extends Component {
             <div className="content">
               <nav className="sidebar">
                 <ul className="side-nav">
-                  <li className="side-nav__item side-nav__item--active">
+                  {/* side-nav__item--active */}
+                  <li className="side-nav__item">
                       <Link to="/surveys" className="side-nav__link">
                         <img src={dashboard} alt="" className="side-nav__icon"/>
                         <span>Dashboard</span>
