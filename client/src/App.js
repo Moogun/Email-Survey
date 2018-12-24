@@ -9,6 +9,10 @@ import newsurvey from './assets/img/newsurvey.svg'
 import Header from './components/Header'
 import Landing from './components/Landing'
 
+import Segment from 'semantic-ui-react/dist/commonjs/elements/Segment';
+import Dimmer from 'semantic-ui-react/dist/commonjs/modules/Dimmer';
+import Loader from 'semantic-ui-react/dist/commonjs/elements/Loader';
+
 import Loadable from 'react-loadable'
 const loadableSurveyList = Loadable({
   loader: () => import ('./components/surveys/SurveyList'),
@@ -30,38 +34,45 @@ class App extends Component {
     this.props.fetchUser()
   }
   renderContent() {
-    if (this.props.auth) {
-      return (
-        <div className="content">
-          <nav className="sidebar">
-            <ul className="side-nav">
-              {/* side-nav__item--active */}
-              <li className="side-nav__item">
-                <Link to="/surveys" className="side-nav__link">
-                  <img src={dashboard} alt="" className="side-nav__icon"/>
-                  <span>Dashboard</span>
-                </Link>
-              </li>
-              <li className="side-nav__item">
-                <Link to="/surveys/new" className="side-nav__link">
-                  <img src={newsurvey} alt="" className="side-nav__icon"/>
-                  <span>New Survey</span>
-                </Link>
+    switch (this.props.auth) {
+      case null:
+          return( <div>
+                <Segment basic style={{minHeight: "100vh"}}>
+                  <Dimmer active inverted>
+                    <Loader inverted>Loading</Loader>
+                  </Dimmer>
+                </Segment>
+              </div>)
+      case false :
+          return <Landing />
+      default :
+          return <div className="content">
+            <nav className="sidebar">
+              <ul className="side-nav">
+                {/* side-nav__item--active */}
+                <li className="side-nav__item">
+                  <Link to="/surveys" className="side-nav__link">
+                    <img src={dashboard} alt="" className="side-nav__icon"/>
+                    <span>Dashboard</span>
+                  </Link>
+                </li>
+                <li className="side-nav__item">
+                  <Link to="/surveys/new" className="side-nav__link">
+                    <img src={newsurvey} alt="" className="side-nav__icon"/>
+                    <span>New Survey</span>
+                  </Link>
 
-              </li>
-            </ul>
-            <div className="legal">
-              &copy; 2018 by Email Marketing. All rights reserved.
-            </div>
-          </nav>
-          <main className="hotel-view">
-            <Route exact="exact" path="/surveys" component={loadableSurveyList}/>
-            <Route path="/surveys/new" component={loadableSurveyNew}/>
-          </main>
-        </div>
-      );
-    } else {
-      return (<Landing></Landing>)
+                </li>
+              </ul>
+              <div className="legal">
+                &copy; 2018 by Email Marketing. All rights reserved.
+              </div>
+            </nav>
+            <main className="hotel-view">
+              <Route exact path="/surveys" component={loadableSurveyList}/>
+              <Route path="/surveys/new" component={loadableSurveyNew}/>
+            </main>
+          </div>
     }
   }
   render() {
