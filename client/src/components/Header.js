@@ -69,7 +69,7 @@ class NonAuthMenu  extends Component {
         return (
           <nav className="user-nav">
             <div className="user-nav__icon-box">
-              <a href='/api/login' className="user-nav__user-name">login</a>
+              <a href='/auth/google' className="user-nav__user-name">login</a>
             </div>
           </nav>
         );
