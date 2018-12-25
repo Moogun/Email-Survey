@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import menu from '../assets/img/menu.svg'
-import Payment from './Payment'
+import menu from '../../assets/img/menu.svg'
+import Payment from '../Payment'
 
 class AuthMenu extends Component {
 

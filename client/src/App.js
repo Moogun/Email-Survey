@@ -6,7 +6,7 @@ import * as actions from './actions'
 import dashboard from './assets/img/dashboard.svg'
 import newsurvey from './assets/img/newsurvey.svg'
 
-import Header from './components/Header'
+import Header from './components/Header/Header'
 import Landing from './components/Landing'
 
 import Segment from 'semantic-ui-react/dist/commonjs/elements/Segment';

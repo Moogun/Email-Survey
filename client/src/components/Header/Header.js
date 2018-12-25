@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import logo from '../assets/img/logo.svg'
+import logo from '../../assets/img/logo.svg'
 
 import AuthMenu from './AuthMenu'
 import NonAuthMenu from './NonAuthMenu'
