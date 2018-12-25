@@ -1,5 +1,6 @@
 import React from 'react';
-import newsurvey from '../../assets/img/newsurvey.svg'
+import logout from '../../assets/img/logout.svg'
+import add from '../../assets/img/add.svg'
 import Payment from '../Payment'
 
 const SideDrawer  = ({sideDrawer, auth}) => {
@@ -12,16 +13,16 @@ const SideDrawer  = ({sideDrawer, auth}) => {
             <p className="sideDrawer_title-sub">credits : {auth.credits}</p>
           </div>
           <div className="sideDrawer_item">
-            <img src={newsurvey} alt="" className="sideDrawer_item-icon"/>
+            <img src={add} alt="" className="sideDrawer_item-icon"/>
             <Payment />
           </div>
           <div className="sideDrawer_item">
-            <img src={newsurvey} alt="" className="sideDrawer_item-icon"/>
+            <img src={logout} alt="" className="sideDrawer_item-icon"/>
             <a href='/api/logout' className="">Logout</a>
           </div>
         </div>
       : <div className="sideDrawer_item">
-        <img src={newsurvey} alt="" className="sideDrawer_item-icon"/>
+        <img src={logout} alt="" className="sideDrawer_item-icon"/>
         <a href='/auth/google' className="">Login</a>
       </div>}
     </div>)
