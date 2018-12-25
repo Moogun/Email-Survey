@@ -27,7 +27,7 @@ class Header extends Component {
       case null:
         return <div></div>
       case false:
-        return <NonAuthMenu />
+        return <NonAuthMenu toggleSideDrawer={this.togglesideDrawer}/>
       default:
         return <AuthMenu auth={this.props.auth} toggleSideDrawer={this.togglesideDrawer}/>
     }

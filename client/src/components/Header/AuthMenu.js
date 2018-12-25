@@ -6,10 +6,9 @@ class AuthMenu extends Component {
 
   render() {
     const {auth} = this.props
-    // console.log('[auth menu]', isMobile);
     return (
       <>
-        <div className="hamburger" onClick={() => this.props.toggleSideDrawer()}><img src={menu} alt="" /></div>
+        <div className="hamburger" auth={auth} onClick={() => this.props.toggleSideDrawer()}><img src={menu} alt="" /></div>
         <nav className="user-nav">
           <div className="user-nav__icon-box">
             Credits: {auth.credits}
