@@ -47,7 +47,7 @@ class App extends Component {
           return <Landing />
       default :
           return <div className="content">
-            <nav className="sideDrawer">
+            <nav className="sidebar">
               <ul className="side-nav">
                 {/* side-nav__item--active */}
                 <li className="side-nav__item">
