@@ -1,8 +1,9 @@
 import React from 'react';
 import newsurvey from '../../assets/img/newsurvey.svg'
+import Payment from '../Payment'
 
-const SideDrawer  = ({sideDrawer}) => {
-  // console.log('[sideDrawer]', sideDrawer);
+const SideDrawer  = ({sideDrawer, auth}) => {
+  console.log('[sideDrawer]', auth);
   return (<div className={sideDrawer ? "sideDrawer open" : "sideDrawer" }>
       <div className="sideDrawer_nav">
         <div className="sideDrawer_title">
@@ -11,23 +12,14 @@ const SideDrawer  = ({sideDrawer}) => {
         </div>
         <div className="sideDrawer_item">
           <img src={newsurvey} alt="" className="sideDrawer_item-icon"/>
-          Account
+          <Payment />
         </div>
         <div className="sideDrawer_item">
           <img src={newsurvey} alt="" className="sideDrawer_item-icon"/>
-          Credits
-        </div>
-        <div className="sideDrawer_item">
-          <img src={newsurvey} alt="" className="sideDrawer_item-icon"/>
-          Add credits
-        </div>
-        <div className="sideDrawer_item">
-          <img src={newsurvey} alt="" className="sideDrawer_item-icon"/>
-          Etc
+          <a href='/api/logout' className="">Logout</a>
         </div>
       </div>
     </div>)
 }
 
-
-export default SideDrawer ;
+export default SideDrawer

@@ -28,9 +28,7 @@ class Payment extends React.Component {
         token={token => this.props.handleToken(token)}
         stripeKey="pk_test_Y6LfmvViO0VFb2iZjNTQC46T"
       >
-        <Button primary>
           Add Credits
-        </Button>
       </StripeCheckout>
 
     )

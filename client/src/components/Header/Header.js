@@ -45,7 +45,7 @@ class Header extends Component {
         <img src={logo} alt="Email Survey" className="logo"/>
         <span>Email Marketing</span>
       </Link>
-      <SideDrawer sideDrawer={this.state.sideDrawer}/>
+      <SideDrawer auth={this.props.auth} sideDrawer={this.state.sideDrawer}/>
       {backdrop}
 
       {this.renderContent()}
