@@ -20,7 +20,6 @@ class Header extends Component {
     this.setState((prevState) => {
       return { sideDrawer: !prevState.sideDrawer}
     })
-    console.log(this.state.sideDrawer);
   }
 
   renderContent() {
