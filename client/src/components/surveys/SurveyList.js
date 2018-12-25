@@ -30,17 +30,14 @@ class SurveyList extends Component {
           return surveys.page.map(survey => {
             let date = new Date(survey.dateSent);
             return (
-                  <tr key={survey._id}>
-                    <td>{date.getFullYear()+'-' + (date.getMonth()+1) + '-'+date.getDate()}</td>
-                    <td>{survey.title}</td>
-                    <td>{survey.body}</td>
-                    <td>{survey.recipients.length}</td>
-                    <td>Delivered</td>
-                    <td>open</td>
-                    <td>Unique Open</td>
-                    <td>Click</td>
-                    <td>{survey.yes} : {survey.no}</td>
-                  </tr>
+                <tr key={survey._id}>
+                  <td>{date.getFullYear()+'-' + (date.getMonth()+1) + '-'+date.getDate()}</td>
+                  <td>{survey.title}</td>
+                  <td>{survey.recipients.length}</td>
+                  <td>##</td>
+                  <td>##</td>
+                  {/* <td>{survey.yes} : {survey.no}</td> */}
+                </tr>
             )
           })
       }
@@ -67,12 +64,8 @@ class SurveyList extends Component {
                      <th>Date</th>
                      <th>Campaign</th>
                      <th>Sent</th>
-                     <th>Delivered</th>
                      <th>Open</th>
-                     <th>Unique Open</th>
                      <th>Click</th>
-                     <th>Unique Click</th>
-                     <th>sth</th>
                    </tr>
                    {this.renderSurveys()}
                    </tbody>
