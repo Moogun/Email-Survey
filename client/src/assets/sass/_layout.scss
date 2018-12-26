@@ -717,7 +717,7 @@
     }
 }
 
-.section_action {
+.action {
   height: 20rem;
 
   display: flex;
@@ -725,10 +725,24 @@
   align-items: center;
   justify-content: center;
 
-  background-color: var(--color-primary-light-2);
+  background-color: var(--color-grey-light-1);
 }
 
 .section_news_letter {
   height: 40rem;
   background-color: var(--color-grey-dark-1);
+}
+
+.footer {
+  height: 5rem;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &_copyright {
+    color: var(--color-grey-light-3);
+    margin-left: 2rem;
+    font-size: 1.5rem;
+  }
 }

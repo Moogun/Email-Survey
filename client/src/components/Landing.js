@@ -52,22 +52,21 @@ class Landing extends Component {
 
         </div>
 
-        <div className="section_action">
+        <div className="action">
           <div className="action_avatar">
             <img
               src={moogun}
               alt="moogun" className="action_avt"/>
           </div>
           <div className="action_text-box">
-              <p className="action_text-box-primary">Tools for marketer</p>
-              <p className="action_text-box-secondary">Keep notifying how your prospect customers respond to your email</p>
+              <div className="action_text-box-primary">Moogun</div>
+              <div className="action_text-box-secondary">"Keep notifying how your prospect customers respond to your email"</div>
           </div>
         </div>
 
-        <div>
-          footer
-        </div>
-
+        <footer className="footer">
+          <p className="footer_copyright"> Eamil Survey 2018 @Copyright </p>
+        </footer>
 
       </div>
     );
