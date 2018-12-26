@@ -1,6 +1,10 @@
 
 .section_feature {
-  // background-color: var(--color-grey-light-1);
+  background-image: linear-gradient(
+    to right bottom,
+    var(--color-primary-light-2),
+    var(--color-grey-light-1)
+    );
 
   display: flex;
   flex-direction: row;
@@ -12,14 +16,14 @@
   // }
 
   &_box {
-    flex-grow: 1;
+    flex: 1 1 5rem;
     position: relative;
-    background-color: white;
     margin: 1rem;
     text-align: center;
+    color: var(--color-grey-dark-3);
   }
 
   &_img {
-    width: 50%;
+    width: 5rem;
   }
 }

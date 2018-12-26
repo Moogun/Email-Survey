@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import logo from '../assets/img/logo.svg'
+import envelope from '../assets/img/envelope.svg'
+import mail from '../assets/img/mail.svg'
+import plane from '../assets/img/plane.svg'
 
 class Landing extends Component {
 
@@ -24,21 +27,21 @@ class Landing extends Component {
         <div className="section_feature">
             <div className="section_feature_box">
               <img
-                src={logo}
+                src={envelope}
                 alt="Email Survey" className="section_feature_img"/>
-              <p>something</p>
+              <p>Write</p>
             </div>
             <div className="section_feature_box">
               <img
-                src={logo}
+                src={plane}
                 alt="Email Survey" className="section_feature_img"/>
-              <p>something</p>
+              <p>Send</p>
             </div>
             <div className="section_feature_box">
               <img
-                src={logo}
+                src={mail}
                 alt="Email Survey" className="section_feature_img"/>
-              <p>something</p>
+              <p>See Responses</p>
             </div>
         </div>
 
