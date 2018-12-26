@@ -2,7 +2,7 @@
   background-color: var(--color-primary);
 }
 
-.section_landing {
+.landing {
   background-color: var(--color-grey-light-1);
 
   display: flex;
@@ -15,11 +15,11 @@
   }
 
   &_box {
-    flex-grow: 1;
+    flex: 1 0 50%;
     position: relative;
   }
 
-  &_text-box {
+  &_text {
     position: absolute;
     left: 50%;
     top: 40%;
@@ -27,25 +27,33 @@
 
     text-transform: uppercase;
 
-    &-primary {
+    @media only screen and (max-width: $bp-small) {
+        left: 30%;
+    }
+
+    &-main {
       display: block;
       font-size: 6rem;
+      line-height: 6rem;
       font-weight: 400;
       letter-spacing: 2rem;
 
       @media only screen and (max-width: $bp-medium) {
           font-size: 3rem;
+          line-height: 3rem;
       }
 
       @media only screen and (max-width: $bp-small) {
           font-size: 2rem;
+          line-height: 2rem;
           letter-spacing: 1rem;
       }
     }
 
-    &-secondary {
+    &-sub {
       display: block;
       font-size: 2.1rem;
+      line-height: 2.1rem;
       font-weight: 400;
       letter-spacing: 1rem;
 
@@ -68,8 +76,8 @@
     }
 
     @media only screen and (max-width: $bp-small) {
-        margin: 2rem;
-        width: 60px;
+        margin: 0rem;
+        width: 10rem;
     }
   }
 }

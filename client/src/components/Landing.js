@@ -3,23 +3,26 @@ import logo from '../assets/img/logo.svg'
 import envelope from '../assets/img/envelope.svg'
 import mail from '../assets/img/mail.svg'
 import plane from '../assets/img/plane.svg'
+import moogun from '../assets/img/moogun.png'
 
 class Landing extends Component {
 
   render() {
     return (
       <div className="index">
-        <div className="section_landing">
-            <div className="section_landing_box">
-              <div className="section_landing_text-box">
-                  <h1 className="section_landing_text-box-primary">Email Marketing</h1>
-                  <h1 className="section_landing_text-box-secondary">See Customer's Response</h1>
-              </div>
+        <div className="landing">
+
+            <div className="landing_box">
+              <h1 className="landing_text">
+                  <div className="landing_text-main">Email Marketing</div>
+                  <div className="landing_text-sub">See Customer's Response</div>
+              </h1>
             </div>
-            <div className="section_landing_box">
+
+            <div className="landing_box">
               <img
                 src={logo}
-                alt="Email Survey" className="section_landing_img"/>
+                alt="Email Survey" className="landing_img"/>
             </div>
         </div>
 
@@ -45,13 +48,26 @@ class Landing extends Component {
             </div>
         </div>
 
-        <div className="section_action">
-          dummy
+        <div className="section_news_letter">
+
         </div>
 
-        <div className="section_sth">
-          dummy
+        <div className="section_action">
+          <div className="action_avatar">
+            <img
+              src={moogun}
+              alt="moogun" className="action_avt"/>
+          </div>
+          <div className="action_text-box">
+              <p className="action_text-box-primary">Tools for marketer</p>
+              <p className="action_text-box-secondary">Keep notifying how your prospect customers respond to your email</p>
+          </div>
         </div>
+
+        <div>
+          footer
+        </div>
+
 
       </div>
     );

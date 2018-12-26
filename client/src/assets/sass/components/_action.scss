@@ -1,4 +1,16 @@
-.section_action {
-  background-color: white;
-  height: 20rem;
+.action {
+
+  &_avt {
+    width: 6rem;
+    border-radius: 3rem;
+    margin-right: 2rem;
+  }
+
+  &_text-box {
+    text-decoration: uppercase;
+
+    &-primary {
+      font-size: 2rem;
+    }
+  }
 }

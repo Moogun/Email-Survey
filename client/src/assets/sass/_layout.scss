@@ -716,3 +716,19 @@
         animation: pulsate 1s infinite;
     }
 }
+
+.section_action {
+  height: 20rem;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--color-primary-light-2);
+}
+
+.section_news_letter {
+  height: 40rem;
+  background-color: var(--color-grey-dark-1);
+}
