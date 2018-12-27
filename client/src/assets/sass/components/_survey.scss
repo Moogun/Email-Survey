@@ -193,3 +193,16 @@ table {
     font-size: 0.6rem;
   }
 }
+
+.details {
+  display: flex;
+  flex-direction: row;
+
+  &_msg {
+    background-color: yellow;
+  }
+
+  &_stat {
+    background-color: purple;
+  }
+}

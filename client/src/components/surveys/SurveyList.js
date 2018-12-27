@@ -4,8 +4,17 @@ import { fetchSurveys } from '../../actions'
 
 import Segment from 'semantic-ui-react/dist/commonjs/elements/Segment';
 import Pagination from 'semantic-ui-react/dist/commonjs/addons/Pagination';
+import SurveyDetails from './SurveyDetails';
 
 class SurveyList extends Component {
+  constructor() {
+    super();
+    this.state = {
+      detailsOpen: false,
+      survey: null
+    };
+  }
+
 
   handlePaginationChange = (e, { activePage }) => {
       // activePage prop of Pagination component
@@ -17,6 +26,12 @@ class SurveyList extends Component {
       // initial fetching chosenPage == 1
       const pageSize = 5
       this.props.fetchSurveys(chosenPage, pageSize)
+  }
+  handleClickSurvey = (survey) => {
+    console.log('handle click survey', survey);
+    this.setState((prevState) => {
+      return {detailsOpen : !prevState.detailsOpen, survey: survey}
+    })
   }
 
   componentDidMount() {
@@ -30,7 +45,7 @@ class SurveyList extends Component {
           return surveys.page.map(survey => {
             let date = new Date(survey.dateSent);
             return (
-                <tr key={survey._id}>
+                <tr key={survey._id} onClick={() => this.handleClickSurvey(survey)}>
                   <td>{date.getFullYear()+'-' + (date.getMonth()+1) + '-'+date.getDate()}</td>
                   <td>{survey.title}</td>
                   <td>{survey.recipients.length}</td>
@@ -46,7 +61,6 @@ class SurveyList extends Component {
   render() {
 
     const {count, chosenPage} = this.props.surveys
-    // console.log('[render surveys]', this.props.surveys, chosenPage);
 
     return (
       <>
@@ -57,32 +71,36 @@ class SurveyList extends Component {
         </div>
         <div className="detail">
           <div className="description">
-            <div className="campaign__list">
-               <table>
-                 <tbody>
-                   <tr>
-                     <th>Date</th>
-                     <th>Campaign</th>
-                     <th>Sent</th>
-                     <th>Open</th>
-                     <th>Click</th>
-                   </tr>
-                   {this.renderSurveys()}
-                   </tbody>
-                 </table>
-             </div>
-
-           <Segment basic textAlign='center'>
-               <Pagination
-                   activePage={!!chosenPage ? chosenPage : 0}
-                   boundaryRange="1"
-                   onPageChange={this.handlePaginationChange}
-                   size='mini'
-                   siblingRange="1"
-                   totalPages={!!count ? parseInt(count / 5, 10) + 1 : 0}
-                   secondary
-                />
-            </Segment>
+            {this.state.detailsOpen
+              ? <SurveyDetails survey={this.state.survey} onCancel={() => this.handleClickSurvey(null)}/>
+              : <>
+              <div className="campaign__list">
+                 <table>
+                   <tbody>
+                     <tr>
+                       <th>Date</th>
+                       <th>Campaign</th>
+                       <th>Sent</th>
+                       <th>Open</th>
+                       <th>Click</th>
+                     </tr>
+                     {this.renderSurveys()}
+                     </tbody>
+                   </table>
+               </div>
+               <Segment basic textAlign='center'>
+                   <Pagination
+                       activePage={!!chosenPage ? chosenPage : 0}
+                       boundaryRange="1"
+                       onPageChange={this.handlePaginationChange}
+                       size='mini'
+                       siblingRange="1"
+                       totalPages={!!count ? parseInt(count / 5, 10) + 1 : 0}
+                       secondary
+                    />
+                </Segment>
+              </>
+            }
           </div>
         </div>
       </>
