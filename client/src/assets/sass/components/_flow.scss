@@ -1,0 +1,65 @@
+.flow {
+  height: 50rem;
+  background-color: var(--color-grey-dark-1);
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  @media only screen and (max-width: $bp-medium){
+      height: 40rem;
+  };
+
+  @media only screen and (max-width: $bp-smallest){
+      height: 30rem;
+  };
+
+  &_box {
+    margin: 5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media only screen and (max-width: $bp-medium){
+      margin: 3rem;
+    };
+
+    @media only screen and (max-width: $bp-smallest){
+        margin: 3rem;
+    };
+
+    &-list {
+    }
+
+    &-item {
+      list-style: none;
+      color: var(--color-grey-light-1);
+      font-size: 3rem;
+
+      @media only screen and (max-width: $bp-medium){
+          font-size: 2rem;
+      };
+
+      @media only screen and (max-width: $bp-smallest){
+          font-size: 1.5rem;
+      };
+    }
+
+
+
+    &-img {
+      margin: 5rem;
+      width: 30rem;
+
+      @media only screen and (max-width: $bp-medium){
+          width: 15rem
+      };
+
+      @media only screen and (max-width: $bp-smallest){
+          width: 10rem
+      };
+    }
+  }
+}

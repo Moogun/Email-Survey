@@ -3,6 +3,7 @@ import logo from '../assets/img/logo.svg'
 import envelope from '../assets/img/envelope.svg'
 import mail from '../assets/img/mail.svg'
 import plane from '../assets/img/plane.svg'
+import diagram from '../assets/img/diagram.svg'
 import moogun from '../assets/img/moogun.png'
 
 class Landing extends Component {
@@ -48,7 +49,20 @@ class Landing extends Component {
             </div>
         </div>
 
-        <div className="section_news_letter">
+        <div className="flow">
+          <div className="flow_box">
+            <ul className="flow_box-list">
+              <li className="flow_box-item">A/B Test</li>
+              <li className="flow_box-item">Track Efficiency</li>
+              <li className="flow_box-item">Target Audience</li>
+              <li className="flow_box-item">Boost Sales</li>
+            </ul>
+          </div>
+          <div className="flow_box">
+            <img
+            src={diagram}
+            alt="diagram" className="flow_box-img"/>
+          </div>
 
         </div>
 
@@ -75,23 +89,3 @@ class Landing extends Component {
 }
 
 export default Landing;
-
-// <Container>
-//   <header className="header">
-//     <div className="text-box">
-//         <h1 className="heading-primary">
-//           <span className="heading-primary-main">Email Surveys</span>
-//           <span className="heading-primary-sub">Now you can see how your customers respond to your marketing emails</span>
-//         </h1>
-//     </div>
-//   </header>
-//
-//     <div className="instruction">
-//         <h1 className="instruction-title">How to add credits (for test purpose)</h1>
-//         <ol className="instruction-steps">
-//             <li>Click 'Add Credits'</li>
-//             <li>Enter 4242 4242 4242 4242 for the card number</li>
-//             <li>Enter arbitrary expiration date and CVC (eg. 11/20 , 111)</li>
-//         </ol>
-//     </div>
-// </Container>

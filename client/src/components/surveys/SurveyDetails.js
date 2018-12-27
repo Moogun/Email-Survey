@@ -4,7 +4,7 @@ const SurveyDetails = ({survey, onCancel }) => {
   console.log('[details]', survey);
   return (
     <div>
-      <button onClick={onCancel}>Back to List</button>
+      <button onClick={onCancel}>Working on this Back to List</button>
       <div className="details">
         <div className="details_msg">{survey.title}</div>
         <div className="details_stat">states</div>
