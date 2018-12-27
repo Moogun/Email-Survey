@@ -6,32 +6,37 @@ import formFields from './formFields';
 import { withRouter } from 'react-router-dom';
 import * as actions from '../../actions';
 
-import Container from 'semantic-ui-react/dist/commonjs/elements/Container';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Header from 'semantic-ui-react/dist/commonjs/elements/Header';
-import Table from 'semantic-ui-react/dist/commonjs/collections/Table';
-
 const SurveyFormReview = ({onCancel, formValues, submitSurvey, history}) => {
    const reviewFields = _map(formFields, ({ name, label }) => {
      return (
-          <Table.Row key={name}>
-            <Table.Cell width={4}>{label}</Table.Cell>
-            <Table.Cell>{formValues[name]}</Table.Cell>
-          </Table.Row>
+          <div className="form__group" key={name}>
+            <label htmlFor="name" className="form__label">{label}</label>
+            <span>{formValues[name]}</span>
+          </div>
      );
    });
 
    return (
-     <Container>
-       <Header as='h2'>Please confirm your entries</Header>
-        <Table padded>
-            <Table.Body>
-                {reviewFields}
-            </Table.Body>
-        </Table>
-        <Button color='yellow' onClick={onCancel}> Back </Button>
-        <Button primary floated='right' onClick={() => submitSurvey(formValues, history)} > Send Survey </Button>
-     </Container>
+     <>
+       <div className="overview">
+         <h1 className="overview__heading">
+           New Survey
+         </h1>
+       </div>
+       <div className="detail">
+         <div className="description">
+           <div className="campaign">
+               <div action="" className="form" >
+                   {reviewFields}
+                 <div className="form__group__button">
+                   <button className="form__goback" onClick={onCancel}>Back</button>
+                   <button className="form__send" onClick={() => submitSurvey(formValues, history)}>Send</button>
+                 </div>
+               </div>
+            </div>
+        </div>
+      </div>
+   </>
    );
  };
 

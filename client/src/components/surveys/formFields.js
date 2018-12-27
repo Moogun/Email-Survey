@@ -1,6 +1,7 @@
 export default [
    { label: 'Campaign Title', name: 'title' },
-   { label: 'Subject(Email Title)', name: 'subject' },
+   { label: 'Email Subject', name: 'subject' },
    { label: 'Email Body', name: 'body'},
-   { label: 'Recipient List', name: 'recipients' }
+   { label: 'Recipient List', name: 'recipients' },
+   { label: 'Sender', name: 'sender' }
  ];

@@ -8,31 +8,47 @@ import SurveyField from './SurveyField';
 import validateEmails from '../../utils/validateEmails';
 import formFields from './formFields';
 
-import Container from 'semantic-ui-react/dist/commonjs/elements/Container';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Header from 'semantic-ui-react/dist/commonjs/elements/Header';
-import Form from 'semantic-ui-react/dist/commonjs/collections/Form';
-
 class SurveyForm  extends Component {
   renderFields() {
-    return _map(formFields, ({label, name}) => {
-       return <Form.Field key={name}>
-         <label>{label}</label>
-         <Field key={name} name={name} component={SurveyField} />
-      </Form.Field>
-    })
-  }
+  return _map(formFields, ({label, name}) => {
+    return <div key={name} className="form__group">
+      <label className={label !== 'Email Body'
+          ? "form__label"
+          : "form__label form__label__Email-Body"}>{label}</label>
+      <Field key={name} name={name} component={SurveyField} style={label !== 'Email Body'
+          ? "form__input"
+          : "form__textarea"}/>
+    </div>
+  })
+}
 
   render() {
+    // console.log(this.props.handleSubmit());
     return (
-      <Container>
-        <Header as='h2'>New Survey</Header>
-        <Form action="" onSubmit={this.props.handleSubmit(() => this.props.onSurveySubmit())}>
-          {this.renderFields()}
-          <Button color='red' as={Link} to="/surveys">Cancel</Button>
-          <Button primary floated='right' type="submit">Review</Button>
-        </Form>
-      </Container>
+      <>
+        <div className="overview">
+          <h1 className="overview__heading">
+            New Survey
+          </h1>
+        </div>
+        <div className="detail">
+          <div className="description">
+            <div className="campaign">
+                <form action="" className="form" onSubmit={this.props.handleSubmit(() => this.props.onSurveySubmit())}>
+                  {this.renderFields()}
+                  <div className="form__group__button">
+                    <Link to="/surveys" className="form__cancel">
+                      <span>Cancel</span>
+                    </Link>
+                    <button className="form__review" type="submit">
+                      <span>Review</span>
+                    </button>
+                  </div>
+                </form>
+            </div>
+          </div>
+        </div>
+      </>
     );
   }
 }
@@ -40,11 +56,12 @@ class SurveyForm  extends Component {
 function validate(values) {
   const errors = {};
 
-  errors.emails = validateEmails(values.emails || '');
+  errors.recipients = validateEmails(values.recipients || '');
+  errors.sender = validateEmails(values.sender || '');
 
   _each(formFields, ({ name }) => {
     if (!values[name]) {
-      errors[name] = 'You must provide a value';
+      errors[name] = 'Required';
     }
   });
 

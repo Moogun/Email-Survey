@@ -1,13 +1,13 @@
 import React from 'react';
-
-export default ({label, input, meta: {error, touched} }) => {
+export default ({label, input, style, meta: {error, touched} }) => {
   return (
-    <div>
-      <label htmlFor="">{label}</label>
-      {input.name !== 'body' ? <input type="text" {...input}/> : <textarea rows="5" {...input}/>}
-      <div>
+    <>
+      {input.name !== 'body'
+      ? <input type="text" {...input} className={style} />
+      : <textarea type="text" {...input} className={style}/> }
+      <div style={{fontSize: "1rem", color: "red"}}>
         {touched && error}
       </div>
-    </div>
+    </>
   )
 }

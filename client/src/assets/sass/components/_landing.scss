@@ -1,0 +1,83 @@
+.index {
+  background-color: var(--color-primary);
+}
+
+.landing {
+  background-color: var(--color-grey-light-1);
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 5rem;
+
+  @media only screen and (max-width: $bp-small) {
+      flex-direction: row-reverse;
+  }
+
+  &_box {
+    flex: 1 0 50%;
+    position: relative;
+  }
+
+  &_text {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+
+    text-transform: uppercase;
+
+    @media only screen and (max-width: $bp-small) {
+        left: 30%;
+    }
+
+    &-main {
+      display: block;
+      font-size: 6rem;
+      line-height: 6rem;
+      font-weight: 400;
+      letter-spacing: 2rem;
+
+      @media only screen and (max-width: $bp-medium) {
+          font-size: 3rem;
+          line-height: 3rem;
+      }
+
+      @media only screen and (max-width: $bp-small) {
+          font-size: 2rem;
+          line-height: 2rem;
+          letter-spacing: 1rem;
+      }
+    }
+
+    &-sub {
+      display: block;
+      font-size: 2.1rem;
+      line-height: 2.1rem;
+      font-weight: 400;
+      letter-spacing: 1rem;
+
+      @media only screen and (max-width: $bp-medium) {
+          font-size: 1.5rem;
+      }
+
+      @media only screen and (max-width: $bp-small) {
+          font-size: 1rem;
+      }
+
+    }
+  }
+
+  &_img {
+    margin: 5rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        margin: 3rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        margin: 0rem;
+        width: 10rem;
+    }
+  }
+}
